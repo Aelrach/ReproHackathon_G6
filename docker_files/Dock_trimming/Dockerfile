@@ -1,6 +1,7 @@
 FROM ubuntu:22.04
 RUN apt-get update
 RUN apt-get -y install wget
+#Start of Bug patch.
 RUN apt-get install -y software-properties-common
 RUN apt install -y python2 python-pip
 RUN apt-get install -y python2-dev
@@ -34,6 +35,8 @@ RUN rm -rf build/ test.so
 RUN export APPLY_LP2002043_UBUNTU_CFLAGS_WORKAROUND=""
 RUN python2 setup.py build_ext --inplace
 RUN strings build/lib.linux-x86_64-2.7/test.so | grep -- -O
+# Bug patch done.
+# Actual installation of cutadapt:
 RUN pip2 install cutadapt==1.11
 RUN cutadapt --version
 
