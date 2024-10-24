@@ -1,5 +1,5 @@
 process trim_samples {
-    publishDir "trimmed_files", mode: 'copy'
+    publishDir "results/trimmed_files", mode: 'copy'
 
     input:
     file fastq_files
