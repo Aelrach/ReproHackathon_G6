@@ -1,5 +1,0 @@
-FROM ubuntu:22.04
-RUN && cd /usr/local/ \
-&& wget -O bowtie_app https://github.com/BenLangmead/bowtie.git \
-&& wget -O fastqc_app https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc
-ENTRYPOINT ["/usr/local/bin/mapping"]

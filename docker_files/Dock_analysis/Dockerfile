@@ -20,4 +20,5 @@ RUN wget https://cran.r-project.org/src/base/R-3/R-3.4.1.tar.gz && \
     cd R-3.4.1 && ./configure --enable-R-shlib && make && make install && \
     R --version
 
-ENTRYPOINT ["/usr/local/bin/"]
+COPY Dockerfile /app/Dockerfile
+
