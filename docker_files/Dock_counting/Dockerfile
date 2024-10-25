@@ -11,4 +11,5 @@ RUN wget https://sourceforge.net/projects/subread/files/subread-1.4.6-p3/subread
     mv subread-1.4.6-p3-Linux-x86_64/bin/* /usr/local/bin/ && \
     featureCounts -v
 
-ENTRYPOINT ["/usr/local/bin/"]
+
+COPY Dockerfile /app/Dockerfile
