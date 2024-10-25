@@ -1,5 +1,18 @@
 FROM ubuntu:22.04
 RUN && cd /usr/local/ \
+&& apt update \
+&& apt install build-essential \
 && wget -O bowtie_app https://github.com/BenLangmead/bowtie.git \
-&& wget -O fastqc_app https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc
+&& wget -O fastqc_app https://www.bioinformatics.babraham.ac.uk/projects/download.html#fastqc \
+&& wget https://sourceforge.net/projects/subread/files/subread-1.4.6-p3/subread-1.4.6-p3-Linux-x86_64.tar.gz/download -O subread-1.4.6-p3-Linux-x86_64.tar.gz \
+&& tar -xvzf subread-1.4.6-p3-Linux-x86_64.tar.gz \
+&& sudo mv subread-1.4.6-p3-Linux-x86_64/bin/* /usr/local/bin/ \
+&& featureCounts -v \
+&& sudo apt remove r-base r-base-core \
+&& sudo apt install libreadline6-dev libcurl4-openssl-dev libssl-dev \
+&& wget https://cran.r-project.org/src/base/R-3/R-3.4.1.tar.gz \
+&& tar -zxvf R-3.4.1.tar.gz \
+&& cd R-3.4.1 && ./configure --enable-R-shlib && make \
+&& sudo make install \
+&& R --version
 ENTRYPOINT ["/usr/local/bin/mapping"]
