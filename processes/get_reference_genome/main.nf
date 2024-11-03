@@ -1,5 +1,3 @@
-link_reference_genome="" // Changes when the user passes the corresponding argument to run.sh
-
 process get_reference_genome {
     publishDir "results/database", mode: 'copy'
 

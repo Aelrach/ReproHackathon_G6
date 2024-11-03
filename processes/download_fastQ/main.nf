@@ -1,7 +1,7 @@
-nextflow.enable.dsl = 2
+// nextflow.enable.dsl = 2
 
-params.cpus = 4  // Default number of CPUs (can be modified by the user)
-params.memory = '2G'  // Default memory allocation (can be modified by the user)
+// params.cpus = 4  // Default number of CPUs (can be modified by the user)
+// params.memory = '2G'  // Default memory allocation (can be modified by the user)
 
 workflow {
     sraids = Channel.of("SRR10379721", "SRR10379722", "SRR10379723","SRR10379724", "SRR10379725", "SRR10379726", "SRR10379727")
@@ -9,8 +9,8 @@ workflow {
 }
 
 process dlFastqs {
-    cpus params.cpus 
-    memory params.memory  
+    // cpus params.cpus 
+    // memory params.memory  
     tag "$sra_id"  // Tag the process with the SRA ID for easier tracking
 
     container 'raphaelrubrice/reprohackathon_6:sra-toolkit_latest' 
