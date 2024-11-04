@@ -2,7 +2,7 @@ process map_to_genome {
     publishDir "results/mapping", mode: 'copy'
 
     input:
-    file reference_fasta
+    file index
     file fastq_files
 
     output:
@@ -14,7 +14,6 @@ process map_to_genome {
     // 4) Indexes bam files
     script:
     """
-    bowtie-build $reference_fasta genome_index
     bowtie -p $task.cpus -t -S genome_index $fastq_files ${fastq_files.baseName}.sam 
     samtools view -b -o ${fastq_files.baseName}.bam ${fastq_files.baseName}.sam | samtools sort -@ $task.cpus > ${fastq_files.baseName}.bam
     samtools index ${fastq_files.baseName}.bam
@@ -22,7 +21,7 @@ process map_to_genome {
 }
 
 workflow {
-    reference_fasta = // output of get_reference_genome process (file)
+    index = // output of get_reference_genome process (file)
     fastq_files = // output of trim_samples (file)
-    map_to_genome(reference_fasta, fastq_files)
+    map_to_genome(index, fastq_files)
 }
