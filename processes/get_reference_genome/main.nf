@@ -13,7 +13,7 @@ process get_reference_genome {
     """
 }
 
-workflow {
-    link=Channel.value(link_reference_genome)
-    get_reference_genome(link)
-}
+// workflow {
+//     link=Channel.value(link_reference_genome)
+//     get_reference_genome(link)
+// }
