@@ -9,6 +9,6 @@ process get_annotations {
 
     script:
     """
-    wget-O reference.gff "$link_annotation_genome"
+    wget -O reference.gff "$link_annotation_genome"
     """
 }
