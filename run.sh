@@ -40,4 +40,4 @@ else
     gff_compressed="${0}"
 fi
 
-nextflow run main.nf --sra "${sra_ids}" --fasta_genome "${link_ref_genome}" --gff "${link_annotations}" --fasta_compressed "${fasta_compressed}" --gff_gz "${gff_compressed}"
+nextflow run main.nf --sra "${sra_ids}" --fasta_genome "${link_ref_genome}" --gff "${link_annotations}" --fasta_compressed "${fasta_compressed}" --gff_compressed "${gff_compressed}"
