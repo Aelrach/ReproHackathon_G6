@@ -13,7 +13,7 @@ process get_annotations {
         wget -O reference.gff.zip "$link_annotation_genome"
         unzip reference.gff.zip -d reference.gff
         """
-    } else if (gff_is_gz == 1) { // ends in .gz
+    } else if (gff_is_compressed == 1) { // ends in .gz
         """
         wget -O reference.gff.gz "$link_annotation_genome"
         gzip -d -c reference.gff.gz > reference.gff
