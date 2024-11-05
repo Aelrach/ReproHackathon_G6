@@ -1,5 +1,5 @@
 process get_reference_genome {
-    publishDir "results/database", mode: 'copy'
+    publishDir "results/database", mode: 'link'
 
     input:
     val link_reference_genome

@@ -1,5 +1,5 @@
 process counting {
-    publishDir "results/counting", mode: 'copy'
+    publishDir "results/counting", mode: 'link'
 
     input:
     file annot_file
@@ -10,6 +10,6 @@ process counting {
 
     script:
     """
-    featureCounts--extraAttributes Name-t gene-g ID-F GTF-T $cpus -a $annot_file -o $bam_files
+    featureCounts--extraAttributes Name-t gene-g ID-F GTF-T $task.cpus -a $annot_file -o $bam_files
     """
 }

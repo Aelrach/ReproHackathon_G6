@@ -1,5 +1,5 @@
 process map_to_genome {
-    publishDir "results/mapping", mode: 'copy'
+    publishDir "results/mapping", mode: 'link'
 
     input:
     file index
@@ -13,7 +13,7 @@ process map_to_genome {
     // 3) Indexes bam files
     script:
     """
-    bowtie -p $task.cpus -t -S genome_index $fastq_files ${fastq_files.baseName}.sam 
+    bowtie -p $task.cpus -t -S ./results/bowtie_index/genome_index $fastq_files ${fastq_files.baseName}.sam 
     samtools view -b -o ${fastq_files.baseName}.bam ${fastq_files.baseName}.sam | samtools sort -@ $task.cpus > ${fastq_files.baseName}.bam
     samtools index ${fastq_files.baseName}.bam
     """
