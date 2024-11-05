@@ -13,7 +13,7 @@ process trim_samples {
     """
 }
 
-workflow  {
-    fastq = Channel.fromPath("fastq_files/*.fastq")
-    trimmed_fastq = trim_samples(fastq)
-}
+// workflow  {
+//     fastq = Channel.fromPath("fastq_files/*.fastq")
+//     trimmed_fastq = trim_samples(fastq)
+// }
