@@ -1,11 +1,13 @@
 process get_annotations {
-    publishDir "results/get_annotations", mode: 'copy'
+    cache false
+    publishDir "results/get_annotations", mode: 'copy', overwrite: true
 
     input:
     val link_annotation_genome
     val gff_is_compressed
+    
     output:
-    file "*.gff"
+    path "reference.gff", emit: annotation_file
 
     script:
     if (gff_is_compressed == "2") { // ends in .zip

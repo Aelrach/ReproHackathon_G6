@@ -1,11 +1,11 @@
 process build_index {
-    publishDir "results/bowtie_index", mode: 'link'
+    publishDir "results/bowtie_index", mode: 'link', overwrite: true
 
     input:
-    file reference_fasta
+    path reference_fasta
 
     output:
-    file "genome_index.*.ebwt"
+    path "genome_index.*.ebwt"
 
     script:
     """

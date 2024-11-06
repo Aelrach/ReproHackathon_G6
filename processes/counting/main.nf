@@ -1,12 +1,12 @@
 process counting {
-    publishDir "results/counting", mode: 'link'
+    publishDir "results/counting", mode: 'link', overwrite: true
 
     input:
-    file annot_file
-    file bam_files
+    path annot_file
+    path bam_files
 
     output:
-    file "*.txt"
+    path "*.txt"
 
     script:
     """

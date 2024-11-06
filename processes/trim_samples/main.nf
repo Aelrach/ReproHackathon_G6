@@ -1,11 +1,11 @@
 process trim_samples {
-    publishDir "results/trimmed_files", mode: 'link'
+    publishDir "results/trimmed_files", mode: 'link', overwrite: true
 
     input:
-    file fastq_files
+    path fastq_files
 
     output:
-    file "trimmed_*.fastq"
+    path "trimmed_*.fastq"
 
     script:
     """
