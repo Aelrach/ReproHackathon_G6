@@ -25,19 +25,19 @@ if [[ -z "$sra_ids" ]] || [[ -z "$link_ref_genome" ]] || [[ -z "$link_annotation
 fi
 
 if [[ "$link_ref_genome" == *".zip" ]]; then
-    fasta_compressed="${2}"
+    fasta_compressed="2"
 elif [[ "$link_ref_genome" == *".gz" ]]; then
-    fasta_compressed="${1}"
+    fasta_compressed="1"
 else
-    fasta_compressed="${0}"
+    fasta_compressed="0"
 fi
 
 if [[ "$link_annotations" == *".zip" ]]; then
-    gff_compressed="${2}"
+    gff_compressed="2"
 elif [[ "$link_annotations" == *".gz" ]]; then
-    gff_compressed="${1}"
+    gff_compressed="1"
 else
-    gff_compressed="${0}"
+    gff_compressed="0"
 fi
 
 nextflow run main.nf --sra "${sra_ids}" --fasta_genome "${link_ref_genome}" --gff "${link_annotations}" --fasta_compressed "${fasta_compressed}" --gff_compressed "${gff_compressed}"
