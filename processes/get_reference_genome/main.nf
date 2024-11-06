@@ -1,5 +1,5 @@
 process get_reference_genome {
-    publishDir "results/database", mode: 'link'
+    publishDir "results/database", mode: 'copy'
 
     input:
     val link_reference_genome
@@ -9,15 +9,15 @@ process get_reference_genome {
     file "ref_genome.fa"
 
     script:
-    if (fasta_is_compressed == 2) {
+    if (fasta_is_compressed == "2") {
         """
         wget -q -O ref_genome.fa.zip "$link_reference_genome"
-        unzip ref_genome.fa.zip -d ref_genome.fa
+        unzip ref_genome.fa.zip
         """
-    } else if (fasta_is_compressed == 1) {
+    } else if (fasta_is_compressed == "1") {
         """
         wget -q -O ref_genome.fa.gz "$link_reference_genome"
-        gzip -d -c ref_genome.fa.gz > ref_genome.fa
+        gunzip ref_genome.fa.gz 
         """
     } else {
         """
