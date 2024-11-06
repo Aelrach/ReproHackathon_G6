@@ -17,21 +17,6 @@ link_annotation_genome = Channel.value(params.gff)
 gff_is_compressed = params.gff_compressed
 
 workflow {
-    trim_samples {
-        dependsOn dlFastqs
-    }
-    build_index {
-        dependsOn get_reference_genome
-    }
-
-    map_to_genome {
-        dependsOn build_index, trim_samples
-    }
-
-    counting {
-        dependsOn get_annotations, map_to_genome
-    }
-
     fastq_files = dlFastqs(sraids)
     trimmed_fastq = trim_samples(fastq_files)
     reference_fasta = get_reference_genome(link_reference_genome, fasta_is_compressed)
