@@ -17,11 +17,14 @@ link_annotation_genome = Channel.value(params.gff)
 gff_is_compressed = params.gff_compressed
 
 workflow {
-    fastq_files = dlFastqs(sraids)
+    
+    fastq_files = dlFastqs(sraids).fastqs
     trimmed_fastq = trim_samples(fastq_files)
-    reference_fasta = get_reference_genome(link_reference_genome, fasta_is_compressed)
+
+    reference_fasta = get_reference_genome(link_reference_genome, fasta_is_compressed).reference_fasta
     index = build_index(reference_fasta)
     bam_files = map_to_genome(index, trimmed_fastq)
-    annot_file = get_annotations(link_annotation_genome, gff_is_compressed)
+
+    annot_file = get_annotations(link_annotation_genome, gff_is_compressed).annotation_file
     count_table = counting(annot_file, bam_files)
 }
