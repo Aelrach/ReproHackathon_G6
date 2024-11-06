@@ -13,6 +13,7 @@ while [[ "$#" -gt 0 ]]; do
         -s|--sra) sra_ids="$2"; shift;;
         -fg|--fasta_genome) link_ref_genome="$2"; shift ;;
         -gff|--gff) link_annotations="$2"; shift ;;
+        -t|--threads) THREADS="$2"; shift ;;
         -c|--clean) clean_cache="$2"; shift ;;
         -h|--help) show_help ;;
         *) echo "Unknown parameter passed: $1"; show_help ;;
@@ -21,6 +22,7 @@ while [[ "$#" -gt 0 ]]; do
 done
 
 clean_cache="${clean_cache:-1}"
+THREADS="${THREADS:-4}"
 
 if [[ -z "$sra_ids" ]] || [[ -z "$link_ref_genome" ]] || [[ -z "$link_annotations" ]]; then
     echo "Error, one or more required arguments not specified"
@@ -48,4 +50,4 @@ if [[ "$clean_cache" -eq 1 ]]; then
     nextflow clean -f
 fi
 
-nextflow run main.nf --sra "${sra_ids}" --fasta_genome "${link_ref_genome}" --gff "${link_annotations}" --fasta_compressed "${fasta_compressed}" --gff_compressed "${gff_compressed}"
+nextflow run main.nf --sra "${sra_ids}" --fasta_genome "${link_ref_genome}" --gff "${link_annotations}" --fasta_compressed "${fasta_compressed}" --gff_compressed "${gff_compressed}" --threads ${THREADS}

@@ -10,9 +10,17 @@ include { get_annotations } from "./processes/get_annotations/"
 include { counting } from "./processes/counting/"
 
 // sraids = Channel.of("SRR10379721", "SRR10379722", "SRR10379723","SRR10379724", "SRR10379725", "SRR10379726", "SRR10379727")
+process {
+    withName: '*' {
+        cpus = params.threads
+    }
+}
+
 sraids = Channel.of(params.sra.split(','))
+
 link_reference_genome = Channel.value(params.fasta_genome)
 fasta_is_compressed = params.fasta_compressed
+
 link_annotation_genome = Channel.value(params.gff)
 gff_is_compressed = params.gff_compressed
 
