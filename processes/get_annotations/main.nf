@@ -10,12 +10,12 @@ process get_annotations {
     path "reference.gff", emit: annotation_file
 
     script:
-    if (gff_is_compressed == "2") { // ends in .zip
+    if (gff_is_compressed == 2) { // ends in .zip
         """
         wget -O reference.gff.zip "$link_annotation_genome"
         unzip reference.gff.zip
         """
-    } else if (gff_is_compressed == "1") { // ends in .gz
+    } else if (gff_is_compressed == 1) { // ends in .gz
         """
         wget -O reference.gff.gz "$link_annotation_genome"
         gunzip reference.gff.gz

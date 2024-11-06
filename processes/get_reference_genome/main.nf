@@ -10,12 +10,12 @@ process get_reference_genome {
     path "ref_genome.fa", emit: reference_fasta
 
     script:
-    if (fasta_is_compressed == "2") {
+    if (fasta_is_compressed == 2) {
         """
         wget -q -O ref_genome.fa.zip "$link_reference_genome"
         unzip ref_genome.fa.zip 
         """
-    } else if (fasta_is_compressed == "1") {
+    } else if (fasta_is_compressed == 1) {
         """
         wget -q -O ref_genome.fa.gz "$link_reference_genome"
         gunzip ref_genome.fa.gz
