@@ -1,10 +1,11 @@
 function show_help {
-    echo "Usage : $(basename $0) --sra <list_of_sra_IDS> --fasta_genome "link_to_download_genome_fasta" --gff "link_to_download_genome_annotations""
+    echo "Usage : $(basename $0) --sra <list_of_sra_IDS> --fasta_genome "link_to_download_genome_fasta" --gff "link_to_download_genome_annotations" --threads 4"
     echo
     echo "Required arguments :"
     echo "  --sra (-s)              Comma separated list of SRA IDs, USE QUOTES. e.g "SRR10379721,SRR10379722,SRR10379723""
     echo "  --fasta_genome (-fg)    Link to download the reference genome fasta file."
     echo "  --gff (-gff)            Link to download the reference genome annotation GFF3 file."
+    echo "  --threads (-t)          Number of cpus to use during pipeline execution."
     exit 1
 }
 
