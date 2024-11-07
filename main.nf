@@ -26,7 +26,7 @@ workflow {
 
     reference_fasta = get_reference_genome(link_reference_genome, fasta_is_compressed).reference_fasta
     index = build_index(reference_fasta)
-    bam_files = map_to_genome(absolute_path, trimmed_fastq)
+    (bam_files, bam_indices) = map_to_genome(absolute_path, trimmed_fastq)
 
     annot_file = get_annotations(link_annotation_genome, gff_is_compressed).annotation_file
     count_table = counting(annot_file, bam_files)

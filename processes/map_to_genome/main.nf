@@ -6,7 +6,8 @@ process map_to_genome {
     path fastq_files
 
     output:
-    path "*.bam"
+    path "*.bam", emit: bam_files
+    path "*.bai", emit: bam_indices
 
     // 1) Maps reads to the reference genome (-t to see how much time has gone by)
     // 2) Converts sam files into bam files and then sorts bam files
