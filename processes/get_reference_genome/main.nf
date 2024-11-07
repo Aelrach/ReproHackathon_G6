@@ -1,5 +1,4 @@
 process get_reference_genome {
-    cache false
     publishDir "results/database", mode: 'copy', overwrite: true
 
     input:

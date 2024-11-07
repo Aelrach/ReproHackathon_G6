@@ -2,7 +2,7 @@ process map_to_genome {
     publishDir "results/mapping", mode: 'link', overwrite: true
 
     input:
-    path index
+    path absolute_path
     path fastq_files
 
     output:
@@ -13,9 +13,10 @@ process map_to_genome {
     // 3) Indexes bam files
     script:
     """
-    bowtie -p $task.cpus -t -S ./results/bowtie_index/genome_index $fastq_files ${fastq_files.baseName}.sam 
-    samtools view -b -o ${fastq_files.baseName}.bam ${fastq_files.baseName}.sam | samtools sort -@ $task.cpus > ${fastq_files.baseName}.bam
-    samtools index ${fastq_files.baseName}.bam
+    bowtie -p $task.cpus -t -S ${absolute_path}/results/bowtie_index/genome_index $fastq_files ${fastq_files.baseName}.sam 
+    samtools view -@ $task.cpus -b -o ${fastq_files.baseName}.bam ${fastq_files.baseName}.sam 
+    samtools sort -@ $task.cpus -o ${fastq_files.baseName}.bam ${fastq_files.baseName}.bam
+    samtools index -@ $task.cpus ${fastq_files.baseName}.bam
     """
 }
 

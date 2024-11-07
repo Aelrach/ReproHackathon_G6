@@ -1,5 +1,4 @@
 process get_annotations {
-    cache false
     publishDir "results/get_annotations", mode: 'copy', overwrite: true
 
     input:

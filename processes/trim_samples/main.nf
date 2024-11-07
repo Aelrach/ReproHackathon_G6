@@ -9,7 +9,7 @@ process trim_samples {
 
     script:
     """
-    cutadapt -q 20 --length 25 ${fastq_files} > trimmed_${fastq_files}
+    cutadapt -q 20 --length 25 ${fastq_files} > trimmed_${fastq_files.baseName.replaceAll(/\.fasta$|\.fasta\.gz$|\.fasta\.zip$/, '')}
     """
 }
 
