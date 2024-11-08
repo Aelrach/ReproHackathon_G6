@@ -4,5 +4,5 @@ Repository made for the ReproHackathon course of the Master 2 AMI2B program (Com
 ## **Usage**
 Here is how you can run the pipeline. `--sra`, `--fasta_genome` and `--gff` are **mandatory arguments**.
 ```bash
-. run.sh --sra "SRR10379721,SRR10379722" --fasta_genome "https://ftp.ensemblgenomes.ebi.ac.uk/pub/bacteria/release-60/fasta/bacteria_26_collection/staphylococcus_aureus_subsp_aureus_nctc_8325_gca_000013425/dna/Staphylococcus_aureus_subsp_aureus_nctc_8325_gca_000013425.ASM1342v1_.dna.toplevel.fa.gz" --gff "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_genomic.gff.gz"
+. run.sh --sra "SRR10379721,SRR10379722" --fasta_genome "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_cds_from_genomic.fna.gz" --gff "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_genomic.gff.gz"
 ```
