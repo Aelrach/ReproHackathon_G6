@@ -9,10 +9,9 @@
 // }
 
 process dlFastqs {
-    // cpus params.cpus 
-    // memory params.memory  
     tag "$sra_id"  // Tag the process with the SRA ID for easier tracking
 
+    publishDir "results/fastq_files", mode: 'copy', overwrite: true
     input:
     val sra_id 
 

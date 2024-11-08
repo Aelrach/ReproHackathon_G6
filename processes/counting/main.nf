@@ -1,15 +1,15 @@
 process counting {
-    publishDir "results/counting", mode: 'copy'
+    publishDir "results/counting", mode: 'copy', overwrite: true
 
     input:
-    file annot_file
-    file bam_files
+    path annot_file
+    path bam_files
 
     output:
-    file "*.txt"
+    path "*.txt"
 
     script:
     """
-    featureCounts--extraAttributes Name-t gene-g ID-F GTF-T $cpus -a $annot_file -o $bam_files
+    featureCounts -t gene -g ID -F GFF -T $task.cpus -a $annot_file -o ${bam_files.baseName}_counts.txt $bam_files
     """
 }
