@@ -1,5 +1,5 @@
 process build_index {
-    publishDir "results/bowtie_index", mode: 'move', overwrite: true
+    publishDir "results/bowtie_index", mode: 'copy', overwrite: true
 
     input:
     path reference_fasta

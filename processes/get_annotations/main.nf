@@ -1,5 +1,5 @@
 process get_annotations {
-    publishDir "results/get_annotations", mode: 'move', overwrite: true
+    publishDir "results/get_annotations", mode: 'copy', overwrite: true
 
     input:
     val link_annotation_genome
