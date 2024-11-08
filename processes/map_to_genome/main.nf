@@ -1,5 +1,5 @@
 process map_to_genome {
-    publishDir "results/mapping", mode: 'link', overwrite: true
+    publishDir "results/mapping", mode: 'move', overwrite: true
 
     input:
     path fastq_files

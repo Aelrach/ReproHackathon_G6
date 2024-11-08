@@ -1,5 +1,5 @@
 process counting {
-    publishDir "results/counting", mode: 'link', overwrite: true
+    publishDir "results/counting", mode: 'move', overwrite: true
 
     input:
     path annot_file

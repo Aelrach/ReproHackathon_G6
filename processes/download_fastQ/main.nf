@@ -11,7 +11,7 @@
 process dlFastqs {
     tag "$sra_id"  // Tag the process with the SRA ID for easier tracking
 
-    publishDir "results/fastq_files", mode: 'link', overwrite: true
+    publishDir "results/fastq_files", mode: 'move', overwrite: true
     input:
     val sra_id 
 

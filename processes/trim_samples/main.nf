@@ -1,5 +1,5 @@
 process trim_samples {
-    publishDir "results/trimmed_files", mode: 'link', overwrite: true
+    publishDir "results/trimmed_files", mode: 'move', overwrite: true
 
     input:
     path fastq_files
