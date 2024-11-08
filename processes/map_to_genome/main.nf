@@ -4,6 +4,7 @@ process map_to_genome {
     input:
     path absolute_path
     path fastq_files
+    path index
 
     output:
     path "*.bam", emit: bam_files
