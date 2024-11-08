@@ -25,9 +25,10 @@ workflow {
     trimmed_fastq = trim_samples(fastq_files)
 
     reference_fasta = get_reference_genome(link_reference_genome, fasta_is_compressed).reference_fasta
-    index = build_index(reference_fasta)
-    (bam_files, bam_indices) = map_to_genome(absolute_path, trimmed_fastq, index)
+    (index_files, index_prefix) = build_index(reference_fasta)
+    (bam_files, bam_indices) = map_to_genome(trimmed_fastq, index_prefix, index_files)
 
     annot_file = get_annotations(link_annotation_genome, gff_is_compressed).annotation_file
+    bam_files = bam_files.toList()
     count_table = counting(annot_file, bam_files)
 }
