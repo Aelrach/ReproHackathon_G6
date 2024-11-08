@@ -10,6 +10,6 @@ process counting {
 
     script:
     """
-    featureCounts --extraAttributes Name -t gene -g ID -F GFF -T $task.cpus -a $annot_file -o counts.txt $bam_files
+    featureCounts -t gene -g ID -F GFF -T $task.cpus -a $annot_file -o ${bam_files.baseName}_counts.txt $bam_files
     """
 }
