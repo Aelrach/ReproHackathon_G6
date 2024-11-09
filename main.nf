@@ -9,6 +9,8 @@ include { map_to_genome } from "./processes/map_to_genome/"
 include { get_annotations } from "./processes/get_annotations/"
 include { counting } from "./processes/counting/"
 
+include { check_quality_fastq } from "./processes/quality_fastq/"
+
 // sraids = Channel.of("SRR10379721", "SRR10379722", "SRR10379723","SRR10379724", "SRR10379725", "SRR10379726", "SRR10379727")
 absolute_path = Channel.value(params.wd)
 sraids = Channel.of(params.sra.split(','))
@@ -31,4 +33,6 @@ workflow {
     annot_file = get_annotations(link_annotation_genome, gff_is_compressed).annotation_file
     bam_files = bam_files.toList()
     count_table = counting(annot_file, bam_files)
+
+    fastq_quality = check_quality_fastq(fastq_files)
 }
