@@ -1,0 +1,7 @@
+samples condition
+trimmed_SRR10379721 persister
+trimmed_SRR10379722 persister
+trimmed_SRR10379723 persister
+trimmed_SRR10379724 control
+trimmed_SRR10379725 control
+trimmed_SRR10379726 control
