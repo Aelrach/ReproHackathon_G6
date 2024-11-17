@@ -8,6 +8,8 @@ include { map_to_genome } from "./processes/map_to_genome/"
 
 include { get_annotations } from "./processes/get_annotations/"
 include { counting } from "./processes/counting/"
+include { stat_analysis } from ".processes/stat_analysis/"
+include { gene_pathway_analysis } from "processes/gene_pathway_analysis/"
 
 include { check_quality_fastq } from "./processes/quality_fastq/"
 
@@ -35,4 +37,8 @@ workflow {
     count_table = counting(annot_file, bam_files)
 
     fastq_quality = check_quality_fastq(fastq_files)
+
+    coldata_channel = Channel.fromPath("data/coldata.txt")
+    analysis_results = stat_analysis(count_table, coldata_channel)
+    pathway_results = gene_pathway_analysis(analysis_results)
 }
