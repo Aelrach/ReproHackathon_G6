@@ -1,5 +1,6 @@
 process gene_pathway_analysis {
-
+    publishDir "results/analysis", mode: 'copy', overwrite = true
+    
     input:
     path analysis_results 
 

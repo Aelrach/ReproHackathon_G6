@@ -5,12 +5,17 @@ library(stringi)
 library(stringr)
 library(dplyr)
 library(glue)
-library(tibble)
-library(data.table)
 library(readxl)
 library(ggplot2)
 
-# Define functions
+# Capture command line arguments
+args <- commandArgs(trailingOnly = TRUE)
+count_table_path <- args[1]
+coldata_file_path <- args[2]
+output_file_path <- args[3]
+
+
+# Define helper functions
 format_count_data <- function(count_table, coldata) {
   columns <- colnames(count_table)
   conditions <- unique(c((coldata$condition)))
@@ -70,10 +75,10 @@ make_names_unique <- function(data, column) {
 }
 
 # Load count table
-raw_count_table <- read.table("./counting/countdata.txt", sep=" ", header=TRUE)
+raw_count_table <- read.table(count_table_path, sep=" ", header=TRUE)
 
 # Load coldata
-coldata <- read.table("coldata.txt", sep=" ", header=TRUE)
+coldata <- read.table(coldata_file_path, sep=" ", header=TRUE)
 coldata$condition <- as.character(coldata$condition)
 coldata$samples <- as.character(coldata$samples)
 
@@ -129,26 +134,30 @@ res <- results(dds, alpha = 0.05)
 sig_genes <- subset(res, padj < 0.05)
 head(sig_genes)
 
-# Plot MA plot
-plotMA(res)
+# Plot using ggplot
+res$color <- ifelse(res$padj < 0.05, "red", "black")
 
 # Plot using ggplot
-res$color <- ifelse(
-  res$padj < 0.05 & res$log2FoldChange > 0, "red",
-  ifelse(res$padj < 0.05 & res$log2FoldChange < 0, "blue", "black")
-)
-
-ggplot(as.data.frame(res), aes(y = log2FoldChange, x = log2(baseMean))) +
+a <- ggplot(as.data.frame(res), aes(y = log2FoldChange, x = baseMean)) +
   geom_point(aes(color = color), alpha = 0.5) +
-  scale_color_manual(values = c("red" = "red", "blue" = "blue", "black" = "black")) +
-  theme_minimal() +
-  theme(
-    panel.background = element_rect(fill = "darkgrey", color = NA),
-    plot.background = element_rect(fill = "darkgrey", color = NA),
-    panel.grid = element_line(color = "lightgrey")
-  ) +
+  scale_color_manual(values = c("red" = "red", "black" = "black")) +
+  theme_grey() +
   labs(
     title = "MA Plot of Differentially Expressed Genes",
     y = "Log2 Fold Change",
-    x = "Log2 baseMean"
-  )
+    x = "Mean of normalized counts"
+  ) +
+  geom_hline(aes(yintercept=0), linetype=2) + 
+  coord_cartesian(xlim=c(0.1,4*10**5), ylim=c(-4,4)) + 
+  scale_x_log10()
+pdf(file = "MA_plot_all_genes.pdf")
+print(a)
+pdf.options(
+   width = 8,
+   height = 7,
+   family = "Helvetica",
+   useDingbats = FALSE)
+dev.off()
+
+# Write the DESeq2 results to a CSV file
+write.csv(subset(res, select=-color), file = output_file_path, row.names = TRUE)
