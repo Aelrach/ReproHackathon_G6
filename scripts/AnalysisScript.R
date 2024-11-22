@@ -106,14 +106,15 @@ ID_to_Names <- make_names_unique(ID_to_Names, Name)
 # Convert count table row ids to gene names
 merged <- inner_join(ID_to_Names, format_count_table)
 
-final_count_table <- merged[, !colnames(merged) %in% c("Geneid")]
+final_count_table <- merged #[, !colnames(merged) %in% c("Geneid")]
 
 # Filter out genes which are not expressed 
-final_count_table <- final_count_table[rowSums(final_count_table[, !colnames(final_count_table) %in% c("Name")]) > 0,]
+final_count_table <- final_count_table[rowSums(final_count_table[, !colnames(final_count_table) %in% c("Name", "Geneid")]) > 0,]
+ROWNAMES <- final_count_table$Geneid
+GENENAMES <- final_count_table$Name
 
 # Prepare DESeq dataset
-ROWNAMES <- final_count_table$Name
-final_count_table <- final_count_table[, !names(final_count_table) %in% c("Name")]
+final_count_table <- final_count_table[, !names(final_count_table) %in% c("Name", "Geneid")]
 rownames(final_count_table) <- ROWNAMES
 
 dds <- DESeqDataSetFromMatrix(countData = final_count_table,
@@ -160,4 +161,6 @@ pdf.options(
 dev.off()
 
 # Write the DESeq2 results to a CSV file
+res <- as.data.frame(subset(res, select=-color))
+res$conv_name <- GENENAMES
 write.csv(subset(res, select=-color), file = output_file_path, row.names = TRUE)
