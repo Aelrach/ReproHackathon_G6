@@ -39,6 +39,6 @@ workflow {
 
 
     coldata = create_coldata(bam_files, control_ids)
-    (analysis_results, figures) = stat_analysis(count_table, coldata)
-    pathway_results = gene_pathway_analysis(analysis_results)
+    (finalcountdata, vst_table, deseq_results, figures) = stat_analysis(count_table, coldata)
+    (pathway_results, pathway_figure) = gene_pathway_analysis(deseq_results)
 }
