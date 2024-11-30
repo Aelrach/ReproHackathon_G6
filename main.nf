@@ -9,9 +9,9 @@ include { map_to_genome } from "./processes/map_to_genome/"
 include { get_annotations } from "./processes/get_annotations/"
 include { counting } from "./processes/counting/"
 
-include { stat_analysis } from ".processes/stat_analysis/"
-include { gene_pathway_analysis } from "processes/gene_pathway_analysis/"
-include { create_coldata } from "processes/create_coldata/"
+include { stat_analysis } from "./processes/stat_analysis/"
+include { gene_pathway_analysis } from "./processes/gene_pathway_analysis/"
+include { create_coldata } from "./processes/create_coldata/"
 
 // sraids = Channel.of("SRR10379721", "SRR10379722", "SRR10379723","SRR10379724", "SRR10379725", "SRR10379726", "SRR10379727")
 sraids = Channel.of(params.sra.split(','))
