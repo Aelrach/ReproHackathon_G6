@@ -1,4 +1,4 @@
-library(EnrichmentBrowser)
+library(KEGGREST)
 library(stringr)
 library(ggplot2)
 library(ggrepel)
@@ -27,7 +27,7 @@ list_kegg <- list("sao03010","sao00970")
 all_gene <-  list("ID" = list(), NAME = list(), AA_tRNA = list())
 
 for (KEgg in list_kegg) {
-  gene_keg <- KEGGREST::keggGet(KEgg)[[1]]
+  gene_keg <- keggGet(KEgg)[[1]]
   
   for (i in seq(1,length((gene_keg$GENE)), 2)) {
     
