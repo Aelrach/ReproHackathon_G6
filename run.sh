@@ -1,3 +1,6 @@
+#!/bin/bash
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+
 function show_help {
     echo "Usage : $(basename $0) --sra <list_of_sra_IDS> --fasta_genome "link_to_download_genome_fasta" --gff "link_to_download_genome_annotations" --control "SRR10379721,SRR10379722,SRR10379723" --threads 4"
     echo
@@ -56,7 +59,7 @@ if [[ "$clean_cache" -eq 1 ]]; then
     nextflow clean -f
 fi
 # To make sure our scripts are executable
-chmod +x bin/*
+chmod +x $SCRIPT_DIR/bin/*
 
 # Run the pipeline
 nextflow run main.nf -resume --sra "${sra_ids}" --fasta_genome "${link_ref_genome}" --gff "${link_annotations}" --control "${control_ids}" --fasta_compressed "${fasta_compressed}" --gff_compressed "${gff_compressed}" --threads ${THREADS}
