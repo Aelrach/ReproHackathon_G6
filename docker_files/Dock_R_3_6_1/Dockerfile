@@ -16,5 +16,5 @@ RUN R --version
 RUN Rscript -e "BiocManager::install(c('stringr', 'ggplot2', 'ggrepel', 'dplyr'))"
 RUN Rscript -e 'BiocManager::install("KEGGREST")'
 
-#Required for thge execution of nextflow process
-RUN apt-get install -y procps
+#Required for the execution of nextflow process
+RUN apt-get install -y procps gawk sed coreutils grep
