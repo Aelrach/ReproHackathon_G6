@@ -17,7 +17,7 @@ while [[ "$#" -gt 0 ]]; do
         -s|--sra) sra_ids="$2"; shift;;
         -fg|--fasta_genome) link_ref_genome="$2"; shift ;;
         -gff|--gff) link_annotations="$2"; shift ;;
-        --control|-ctrl) contorl_ids="$2"; shift ;;
+        --control|-ctrl) control_ids="$2"; shift ;;
         -t|--threads) THREADS="$2"; shift ;;
         -c|--clean) clean_cache="$2"; shift ;;
         -h|--help) show_help ;;
