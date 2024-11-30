@@ -34,3 +34,6 @@ RUN Rscript -e 'BiocInstaller::biocLite("GenomeInfoDb")' && \
 
 # Check Installation
 RUN Rscript -e 'library("DESeq2")'
+
+#Required for thge execution of nextflow process
+RUN apt-get install -y procps

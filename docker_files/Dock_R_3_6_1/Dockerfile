@@ -15,3 +15,6 @@ RUN Rscript -e "install.packages('https://cloud.r-project.org/src/contrib/Archiv
 RUN R --version
 RUN Rscript -e "BiocManager::install(c('stringr', 'ggplot2', 'ggrepel', 'dplyr'))"
 RUN Rscript -e 'BiocManager::install("KEGGREST")'
+
+#Required for thge execution of nextflow process
+RUN apt-get install -y procps
