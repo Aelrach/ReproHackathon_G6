@@ -56,4 +56,4 @@ if [[ "$clean_cache" -eq 1 ]]; then
     nextflow clean -f
 fi
 
-nextflow run main.nf -resume --sra "${sra_ids}" --fasta_genome "${link_ref_genome}" --gff "${link_annotations}" --control "${control_ids} --fasta_compressed "${fasta_compressed}" --gff_compressed "${gff_compressed}" --threads ${THREADS}
+nextflow run main.nf -resume --sra "${sra_ids}" --fasta_genome "${link_ref_genome}" --gff "${link_annotations}" --control "${control_ids}" --fasta_compressed "${fasta_compressed}" --gff_compressed "${gff_compressed}" --threads ${THREADS}
