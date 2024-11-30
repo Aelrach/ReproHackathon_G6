@@ -18,5 +18,3 @@ RUN Rscript -e 'BiocManager::install("KEGGREST")'
 
 #Required for the execution of nextflow process
 RUN apt-get install -y procps gawk sed coreutils grep
-
-ENTRYPOINT ["/bin/bash"]

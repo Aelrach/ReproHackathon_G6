@@ -37,5 +37,3 @@ RUN Rscript -e 'library("DESeq2")'
 
 #Required for the execution of nextflow process
 RUN apt-get install -y procps gawk sed coreutils grep
-
-ENTRYPOINT ["/bin/bash"]
