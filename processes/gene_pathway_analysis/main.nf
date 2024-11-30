@@ -10,6 +10,6 @@ process gene_pathway_analysis {
 
     script:
     """
-    GenePathway.R $analysis_results gene_pathway_results.csv
+    GenePathway.R "$analysis_results" "gene_pathway_results.csv"
     """
 }
