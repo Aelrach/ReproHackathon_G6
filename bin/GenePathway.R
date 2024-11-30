@@ -1,3 +1,4 @@
+#!/usr/bin/env Rscript
 library(KEGGREST)
 library(stringr)
 library(ggplot2)

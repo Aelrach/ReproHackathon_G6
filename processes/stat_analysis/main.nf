@@ -1,5 +1,5 @@
 process stat_analysis {
-    publishDir "results/analysis", mode: 'copy', overwrite: true
+    publishDir "results/analysis/deseq2", mode: 'copy', overwrite: true
     input:
     path count_table
     path coldata_file

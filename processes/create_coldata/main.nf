@@ -1,5 +1,5 @@
 process create_coldata {
-    publishDir "results/analysis", mode: 'copy', overwrite = true
+    publishDir "results/analysis/coldata", mode: 'copy', overwrite = true
 
     input:
     path bam_files
@@ -10,6 +10,6 @@ process create_coldata {
 
     script:
     """
-    Rscript scripts/create_coldata.R ${bam_files.join(' ')} $control_ids
+    create_coldata.R ${bam_files.join(' ')} $control_ids
     """
 }
