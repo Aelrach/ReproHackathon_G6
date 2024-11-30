@@ -1,4 +1,4 @@
-#!/usr/bin/env Rscript
+#!/usr/local/bin Rscript
 args <- commandArgs(trailingOnly = TRUE)
 trimmed_files_path <- args[1]
 control_ids <- args[2]

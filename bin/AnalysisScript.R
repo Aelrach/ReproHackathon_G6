@@ -1,4 +1,4 @@
-#!/usr/bin/env Rscript
+#!/usr/local/bin Rscript
 library(DESeq2)
 library(stringi)
 library(stringr)
