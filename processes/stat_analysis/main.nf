@@ -12,6 +12,6 @@ process stat_analysis {
 
     script:
     """
-    AnalysisScript.R "$count_table $coldata_file" "deseq_input_countdata.csv" "vst_table.csv" "deseq_results.csv"
+    -l -c AnalysisScript.R "$count_table $coldata_file" "deseq_input_countdata.csv" "vst_table.csv" "deseq_results.csv"
     """
 }

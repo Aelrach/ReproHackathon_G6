@@ -10,6 +10,6 @@ process create_coldata {
 
     script:
     """
-    create_coldata.R "${bam_files.join(' ')}" "$control_ids"
+    -l -c create_coldata.R "${bam_files.join(' ')}" "$control_ids"
     """
 }
