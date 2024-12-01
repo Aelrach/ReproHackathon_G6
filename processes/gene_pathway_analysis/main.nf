@@ -5,11 +5,10 @@ process gene_pathway_analysis {
     path analysis_results 
 
     output:
-    path "gene_pathway_results.csv", emit: pathway_result
     path "*.pdf"
 
     script:
     """
-    -l -c GenePathway.R "$analysis_results" "gene_pathway_results.csv"
+    -l -c GenePathway.R "$analysis_results"
     """
 }

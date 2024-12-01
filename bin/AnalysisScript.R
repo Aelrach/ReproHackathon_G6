@@ -12,8 +12,8 @@ args <- commandArgs(trailingOnly = TRUE)
 count_table_path <- args[1]
 coldata_file_path <- args[2]
 output_finalcountdata_path <- args[3]
-output_file_path <- args[4]
-output_vst_path <- args[5]
+output_vst_path <- args[4]
+output_file_path <- args[5]
 
 
 # Define helper functions
