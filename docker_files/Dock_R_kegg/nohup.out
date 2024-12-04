@@ -1,0 +1,1714 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.66kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04
+#2 ...
+
+#3 [auth] library/ubuntu:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04
+#2 DONE 1.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B 0.0s done
+#4 DONE 0.0s
+
+#5 [ 1/11] FROM docker.io/library/ubuntu:20.04@sha256:8e5c4f0285ecbb4ead070431d29b576a530d3166df73ec44affc1cd27555141b
+#5 resolve docker.io/library/ubuntu:20.04@sha256:8e5c4f0285ecbb4ead070431d29b576a530d3166df73ec44affc1cd27555141b 0.0s done
+#5 DONE 0.0s
+
+#6 [ 3/11] RUN apt-get install -y  curl make zlib1g-dev  zlib1g  gfortran  g++  gcc  aptitude  fort77  libbz2-dev  liblzma-dev  libpcre3  libpcre3-dev  libcurl4  libcurl4-openssl-dev  default-jdk  texlive-latex-base  libxml2-dev  libpng-dev  graphviz  libgraphviz-dev  libssl-dev r-base-dev libcairo-dev
+#6 CACHED
+
+#7 [ 5/11] RUN curl -o R_3-6-1.tar.gz https://cran.rstudio.com/src/base/R-3/R-3.6.1.tar.gz && tar -xzf R_3-6-1.tar.gz && rm R_3-6-1.tar.gz
+#7 CACHED
+
+#8 [ 6/11] RUN cd R-3.6.1/ && ./configure && make && make install
+#8 CACHED
+
+#9 [ 4/11] RUN aptitude install -y libreadline-dev
+#9 CACHED
+
+#10 [ 2/11] RUN apt-get update
+#10 CACHED
+
+#11 [ 7/11] RUN Rscript -e "install.packages('https://cloud.r-project.org/src/contrib/Archive/BiocManager/BiocManager_1.30.4.tar.gz', repos = NULL, type = 'source')" &&     Rscript -e "BiocManager::install(version='3.9', ask = FALSE)" &&     mkdir -p /usr/local/lib/R/etc &&     echo '# Configure a CRAN snapshot compatible with Bioconductor 3.9: \n options(repos = c(CRAN = "https://packagemanager.posit.co/cran/2019-03-04"))' > /usr/local/lib/R/etc/Rprofile.site
+#11 CACHED
+
+#12 [ 8/11] RUN Rscript -e "BiocManager::install(c('stringr', 'ggplot2', 'ggrepel', 'dplyr'))"
+#12 0.841 'getOption("repos")' replaces Bioconductor standard repositories, see
+#12 0.841 'help("repositories", package = "BiocManager")' for details.
+#12 0.841 Replacement repositories:
+#12 0.841     CRAN: https://packagemanager.posit.co/cran/2019-03-04
+#12 6.773 Bioconductor version 3.9 (BiocManager 1.30.25), R 3.6.1 (2019-07-05)
+#12 6.774 Installing package(s) 'stringr', 'ggplot2', 'ggrepel', 'dplyr'
+#12 7.424 also installing the dependencies 'colorspace', 'utf8', 'labeling', 'munsell', 'RColorBrewer', 'cli', 'crayon', 'fansi', 'pillar', 'purrr', 'glue', 'magrittr', 'stringi', 'digest', 'gtable', 'lazyeval', 'plyr', 'reshape2', 'rlang', 'scales', 'tibble', 'viridisLite', 'withr', 'Rcpp', 'assertthat', 'pkgconfig', 'R6', 'tidyselect', 'BH', 'plogr'
+#12 7.424 
+#12 7.426 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/colorspace_1.4-0.tar.gz'
+#12 8.280 Content type 'application/x-tar' length 2145679 bytes (2.0 MB)
+#12 8.280 ==================================================
+#12 8.431 downloaded 2.0 MB
+#12 8.431 
+#12 8.439 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/utf8_1.1.4.tar.gz'
+#12 9.201 Content type 'application/x-tar' length 218697 bytes (213 KB)
+#12 9.201 ==================================================
+#12 9.226 downloaded 213 KB
+#12 9.226 
+#12 9.226 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/labeling_0.3.tar.gz'
+#12 9.976 Content type 'application/x-tar' length 10413 bytes (10 KB)
+#12 9.976 ==================================================
+#12 9.976 downloaded 10 KB
+#12 9.976 
+#12 9.984 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/munsell_0.5.0.tar.gz'
+#12 10.74 Content type 'binary/octet-stream' length 181832 bytes (177 KB)
+#12 10.74 ==================================================
+#12 10.76 downloaded 177 KB
+#12 10.76 
+#12 10.77 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/RColorBrewer_1.1-2.tar.gz'
+#12 11.51 Content type 'application/x-tar' length 11584 bytes (11 KB)
+#12 11.51 ==================================================
+#12 11.51 downloaded 11 KB
+#12 11.51 
+#12 11.52 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/cli_1.0.1.tar.gz'
+#12 12.37 Content type 'application/x-tar' length 2192117 bytes (2.1 MB)
+#12 12.37 ==================================================
+#12 12.54 downloaded 2.1 MB
+#12 12.54 
+#12 12.55 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/crayon_1.3.4.tar.gz'
+#12 13.31 Content type 'application/x-tar' length 660673 bytes (645 KB)
+#12 13.31 ==================================================
+#12 13.37 downloaded 645 KB
+#12 13.37 
+#12 13.38 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/fansi_0.4.0.tar.gz'
+#12 14.13 Content type 'application/x-tar' length 265481 bytes (259 KB)
+#12 14.13 ==================================================
+#12 14.16 downloaded 259 KB
+#12 14.16 
+#12 14.16 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/pillar_1.3.1.tar.gz'
+#12 15.02 Content type 'application/x-tar' length 101251 bytes (98 KB)
+#12 15.02 ==================================================
+#12 15.02 downloaded 98 KB
+#12 15.02 
+#12 15.03 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/purrr_0.3.1.tar.gz'
+#12 15.80 Content type 'application/x-tar' length 373432 bytes (364 KB)
+#12 15.80 ==================================================
+#12 15.83 downloaded 364 KB
+#12 15.83 
+#12 15.83 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/glue_1.3.0.tar.gz'
+#12 16.61 Content type 'application/x-tar' length 56432 bytes (55 KB)
+#12 16.61 ==================================================
+#12 16.62 downloaded 55 KB
+#12 16.62 
+#12 16.62 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/magrittr_1.5.tar.gz'
+#12 17.38 Content type 'application/x-tar' length 200983 bytes (196 KB)
+#12 17.38 ==================================================
+#12 17.40 downloaded 196 KB
+#12 17.40 
+#12 17.40 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/stringi_1.3.1.tar.gz'
+#12 18.26 Content type 'application/x-tar' length 7278538 bytes (6.9 MB)
+#12 18.27 ==================================================
+#12 18.78 downloaded 6.9 MB
+#12 18.78 
+#12 18.79 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/digest_0.6.18.tar.gz'
+#12 19.55 Content type 'application/x-tar' length 128554 bytes (125 KB)
+#12 19.55 ==================================================
+#12 19.57 downloaded 125 KB
+#12 19.57 
+#12 19.57 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/gtable_0.2.0.tar.gz'
+#12 20.40 Content type 'application/x-tar' length 24469 bytes (23 KB)
+#12 20.40 ==================================================
+#12 20.41 downloaded 23 KB
+#12 20.41 
+#12 20.41 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/lazyeval_0.2.1.tar.gz'
+#12 21.28 Content type 'application/x-tar' length 80108 bytes (78 KB)
+#12 21.28 ==================================================
+#12 21.28 downloaded 78 KB
+#12 21.28 
+#12 21.29 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/plyr_1.8.4.tar.gz'
+#12 22.05 Content type 'application/x-tar' length 392454 bytes (383 KB)
+#12 22.05 ==================================================
+#12 22.09 downloaded 383 KB
+#12 22.09 
+#12 22.10 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/reshape2_1.4.3.tar.gz'
+#12 22.85 Content type 'application/x-tar' length 36742 bytes (35 KB)
+#12 22.85 ==================================================
+#12 22.85 downloaded 35 KB
+#12 22.85 
+#12 22.85 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/rlang_0.3.1.tar.gz'
+#12 23.69 Content type 'application/x-tar' length 856160 bytes (836 KB)
+#12 23.69 ==================================================
+#12 23.78 downloaded 836 KB
+#12 23.78 
+#12 23.78 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/scales_1.0.0.tar.gz'
+#12 24.53 Content type 'application/x-tar' length 300344 bytes (293 KB)
+#12 24.53 ==================================================
+#12 24.55 downloaded 293 KB
+#12 24.55 
+#12 24.56 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/tibble_2.0.1.tar.gz'
+#12 25.40 Content type 'application/x-tar' length 716760 bytes (699 KB)
+#12 25.40 ==================================================
+#12 25.47 downloaded 699 KB
+#12 25.47 
+#12 25.47 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/viridisLite_0.3.0.tar.gz'
+#12 26.23 Content type 'application/x-tar' length 44309 bytes (43 KB)
+#12 26.23 ==================================================
+#12 26.23 downloaded 43 KB
+#12 26.23 
+#12 26.24 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/withr_2.1.2.tar.gz'
+#12 27.00 Content type 'application/x-tar' length 54112 bytes (52 KB)
+#12 27.00 ==================================================
+#12 27.01 downloaded 52 KB
+#12 27.01 
+#12 27.01 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/Rcpp_1.0.0.tar.gz'
+#12 27.94 Content type 'application/x-tar' length 3637041 bytes (3.5 MB)
+#12 27.94 ==================================================
+#12 28.22 downloaded 3.5 MB
+#12 28.22 
+#12 28.23 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/assertthat_0.2.0.tar.gz'
+#12 29.08 Content type 'application/x-tar' length 11437 bytes (11 KB)
+#12 29.08 ==================================================
+#12 29.08 downloaded 11 KB
+#12 29.08 
+#12 29.09 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/pkgconfig_2.0.2.tar.gz'
+#12 29.85 Content type 'application/x-tar' length 6049 bytes
+#12 29.85 ==================================================
+#12 29.85 downloaded 6049 bytes
+#12 29.85 
+#12 29.86 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/R6_2.4.0.tar.gz'
+#12 30.61 Content type 'application/x-tar' length 31395 bytes (30 KB)
+#12 30.61 ==================================================
+#12 30.61 downloaded 30 KB
+#12 30.61 
+#12 30.62 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/tidyselect_0.2.5.tar.gz'
+#12 31.37 Content type 'application/x-tar' length 21818 bytes (21 KB)
+#12 31.37 ==================================================
+#12 31.37 downloaded 21 KB
+#12 31.37 
+#12 31.38 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/BH_1.69.0-1.tar.gz'
+#12 32.21 Content type 'application/x-tar' length 12285703 bytes (11.7 MB)
+#12 32.22 ==================================================
+#12 33.01 downloaded 11.7 MB
+#12 33.01 
+#12 33.02 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/plogr_0.2.0.tar.gz'
+#12 33.76 Content type 'application/x-tar' length 7817 bytes
+#12 33.76 ==================================================
+#12 33.76 downloaded 7817 bytes
+#12 33.76 
+#12 33.77 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/stringr_1.4.0.tar.gz'
+#12 34.51 Content type 'application/x-tar' length 135578 bytes (132 KB)
+#12 34.51 ==================================================
+#12 34.53 downloaded 132 KB
+#12 34.53 
+#12 34.53 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/ggplot2_3.1.0.tar.gz'
+#12 35.29 Content type 'application/x-tar' length 2849713 bytes (2.7 MB)
+#12 35.29 ==================================================
+#12 35.48 downloaded 2.7 MB
+#12 35.48 
+#12 35.49 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/ggrepel_0.8.0.tar.gz'
+#12 36.36 Content type 'application/x-tar' length 225739 bytes (220 KB)
+#12 36.36 ==================================================
+#12 36.38 downloaded 220 KB
+#12 36.38 
+#12 36.38 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/dplyr_0.8.0.1.tar.gz'
+#12 37.24 Content type 'application/x-tar' length 1072595 bytes (1.0 MB)
+#12 37.24 ==================================================
+#12 37.32 downloaded 1.0 MB
+#12 37.32 
+#12 37.86 * installing *source* package 'colorspace' ...
+#12 37.87 ** package 'colorspace' successfully unpacked and MD5 sums checked
+#12 37.87 ** using staged installation
+#12 37.90 ** libs
+#12 37.91 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c colorspace.c -o colorspace.o
+#12 39.14 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#12 39.23 gcc -shared -L/usr/local/lib -o colorspace.so colorspace.o init.o
+#12 39.27 installing to /usr/local/lib/R/site-library/00LOCK-colorspace/00new/colorspace/libs
+#12 39.27 ** R
+#12 39.30 ** data
+#12 39.31 *** moving datasets to lazyload DB
+#12 39.53 ** demo
+#12 39.53 ** inst
+#12 39.57 ** byte-compile and prepare package for lazy loading
+#12 43.22 ** help
+#12 43.37 *** installing help indices
+#12 43.51 ** building package indices
+#12 43.61 ** installing vignettes
+#12 43.62 ** testing if installed package can be loaded from temporary location
+#12 43.89 ** checking absolute paths in shared objects and dynamic libraries
+#12 43.92 ** testing if installed package can be loaded from final location
+#12 44.27 ** testing if installed package keeps a record of temporary installation path
+#12 44.28 * DONE (colorspace)
+#12 44.64 * installing *source* package 'utf8' ...
+#12 44.65 ** package 'utf8' successfully unpacked and MD5 sums checked
+#12 44.65 ** using staged installation
+#12 44.67 ** libs
+#12 44.68 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c as_utf8.c -o as_utf8.o
+#12 44.76 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c bytes.c -o bytes.o
+#12 44.94 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c context.c -o context.o
+#12 45.02 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c init.c -o init.o
+#12 45.08 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c render.c -o render.o
+#12 45.16 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c render_table.c -o render_table.o
+#12 45.36 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c string.c -o string.o
+#12 45.44 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c text.c -o text.o
+#12 45.60 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8_encode.c -o utf8_encode.o
+#12 45.70 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8_format.c -o utf8_format.o
+#12 45.80 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8_normalize.c -o utf8_normalize.o
+#12 45.88 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8_valid.c -o utf8_valid.o
+#12 45.95 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8_width.c -o utf8_width.o
+#12 46.03 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c util.c -o util.o
+#12 46.10 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/array.c -o utf8lite/src/array.o
+#12 46.17 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/char.c -o utf8lite/src/char.o
+#12 46.26 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/encode.c -o utf8lite/src/encode.o
+#12 46.33 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/error.c -o utf8lite/src/error.o
+#12 46.39 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/escape.c -o utf8lite/src/escape.o
+#12 46.48 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/graph.c -o utf8lite/src/graph.o
+#12 46.54 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/graphscan.c -o utf8lite/src/graphscan.o
+#12 46.83 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/normalize.c -o utf8lite/src/normalize.o
+#12 47.27 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/render.c -o utf8lite/src/render.o
+#12 47.48 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/text.c -o utf8lite/src/text.o
+#12 47.57 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/textassign.c -o utf8lite/src/textassign.o
+#12 47.65 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/textiter.c -o utf8lite/src/textiter.o
+#12 47.74 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include -Iutf8lite/src -fpic  -g -O2  -c utf8lite/src/textmap.c -o utf8lite/src/textmap.o
+#12 47.83 ar rcs libcutf8lite.a utf8lite/src/array.o utf8lite/src/char.o utf8lite/src/encode.o utf8lite/src/error.o utf8lite/src/escape.o utf8lite/src/graph.o utf8lite/src/graphscan.o utf8lite/src/normalize.o utf8lite/src/render.o utf8lite/src/text.o utf8lite/src/textassign.o utf8lite/src/textiter.o utf8lite/src/textmap.o
+#12 47.85 gcc -shared -L/usr/local/lib -o utf8.so as_utf8.o bytes.o context.o init.o render.o render_table.o string.o text.o utf8_encode.o utf8_format.o utf8_normalize.o utf8_valid.o utf8_width.o util.o -L. -lcutf8lite
+#12 47.89 installing to /usr/local/lib/R/site-library/00LOCK-utf8/00new/utf8/libs
+#12 47.89 ** R
+#12 47.90 ** inst
+#12 47.90 ** byte-compile and prepare package for lazy loading
+#12 48.46 ** help
+#12 48.50 *** installing help indices
+#12 48.53 ** building package indices
+#12 48.56 ** installing vignettes
+#12 48.57 ** testing if installed package can be loaded from temporary location
+#12 48.81 ** checking absolute paths in shared objects and dynamic libraries
+#12 48.84 ** testing if installed package can be loaded from final location
+#12 49.04 ** testing if installed package keeps a record of temporary installation path
+#12 49.05 * DONE (utf8)
+#12 49.30 * installing *source* package 'labeling' ...
+#12 49.30 ** package 'labeling' successfully unpacked and MD5 sums checked
+#12 49.31 ** using staged installation
+#12 49.32 ** R
+#12 49.33 ** byte-compile and prepare package for lazy loading
+#12 49.92 ** help
+#12 49.97 *** installing help indices
+#12 50.00 ** building package indices
+#12 50.04 ** testing if installed package can be loaded from temporary location
+#12 50.23 ** testing if installed package can be loaded from final location
+#12 50.44 ** testing if installed package keeps a record of temporary installation path
+#12 50.44 * DONE (labeling)
+#12 50.67 * installing *source* package 'RColorBrewer' ...
+#12 50.67 ** package 'RColorBrewer' successfully unpacked and MD5 sums checked
+#12 50.67 ** using staged installation
+#12 50.69 ** R
+#12 50.70 ** inst
+#12 50.70 ** byte-compile and prepare package for lazy loading
+#12 51.54 ** help
+#12 51.56 *** installing help indices
+#12 51.58 ** building package indices
+#12 51.59 ** testing if installed package can be loaded from temporary location
+#12 51.79 ** testing if installed package can be loaded from final location
+#12 52.02 ** testing if installed package keeps a record of temporary installation path
+#12 52.02 * DONE (RColorBrewer)
+#12 52.31 * installing *source* package 'crayon' ...
+#12 52.32 ** package 'crayon' successfully unpacked and MD5 sums checked
+#12 52.32 ** using staged installation
+#12 52.34 ** R
+#12 52.35 ** inst
+#12 52.35 ** byte-compile and prepare package for lazy loading
+#12 53.15 ** help
+#12 53.22 *** installing help indices
+#12 53.27 ** building package indices
+#12 53.31 ** testing if installed package can be loaded from temporary location
+#12 53.53 ** testing if installed package can be loaded from final location
+#12 53.74 ** testing if installed package keeps a record of temporary installation path
+#12 53.74 * DONE (crayon)
+#12 54.06 * installing *source* package 'fansi' ...
+#12 54.07 ** package 'fansi' successfully unpacked and MD5 sums checked
+#12 54.07 ** using staged installation
+#12 54.08 ** libs
+#12 54.10 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c assumptions.c -o assumptions.o
+#12 54.15 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c has.c -o has.o
+#12 54.22 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#12 54.29 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c nchar.c -o nchar.o
+#12 54.39 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c read.c -o read.o
+#12 54.95 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c rnchar.c -o rnchar.o
+#12 55.00 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c state.c -o state.o
+#12 55.52 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c strip.c -o strip.o
+#12 55.69 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c strsplit.c -o strsplit.o
+#12 55.76 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c tabs.c -o tabs.o
+#12 55.94 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c tohtml.c -o tohtml.o
+#12 56.23 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c unhandled.c -o unhandled.o
+#12 56.37 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c unique.c -o unique.o
+#12 56.44 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c utf8.c -o utf8.o
+#12 56.51 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c utils.c -o utils.o
+#12 56.73 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c wrap.c -o wrap.o
+#12 57.09 gcc -shared -L/usr/local/lib -o fansi.so assumptions.o has.o init.o nchar.o read.o rnchar.o state.o strip.o strsplit.o tabs.o tohtml.o unhandled.o unique.o utf8.o utils.o wrap.o
+#12 57.13 installing to /usr/local/lib/R/site-library/00LOCK-fansi/00new/fansi/libs
+#12 57.13 ** R
+#12 57.15 ** inst
+#12 57.15 ** byte-compile and prepare package for lazy loading
+#12 57.85 ** help
+#12 57.92 *** installing help indices
+#12 57.97 ** building package indices
+#12 58.01 ** installing vignettes
+#12 58.02 ** testing if installed package can be loaded from temporary location
+#12 58.23 ** checking absolute paths in shared objects and dynamic libraries
+#12 58.26 ** testing if installed package can be loaded from final location
+#12 58.49 ** testing if installed package keeps a record of temporary installation path
+#12 58.49 * DONE (fansi)
+#12 58.78 * installing *source* package 'glue' ...
+#12 58.79 ** package 'glue' successfully unpacked and MD5 sums checked
+#12 58.79 ** using staged installation
+#12 58.81 ** libs
+#12 58.82 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c glue.c -o glue.o
+#12 58.96 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#12 59.02 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c trim.c -o trim.o
+#12 59.12 gcc -shared -L/usr/local/lib -o glue.so glue.o init.o trim.o
+#12 59.15 installing to /usr/local/lib/R/site-library/00LOCK-glue/00new/glue/libs
+#12 59.15 ** R
+#12 59.16 ** inst
+#12 59.17 ** byte-compile and prepare package for lazy loading
+#12 59.67 ** help
+#12 59.70 *** installing help indices
+#12 59.73 *** copying figures
+#12 59.74 ** building package indices
+#12 59.76 ** installing vignettes
+#12 59.76 ** testing if installed package can be loaded from temporary location
+#12 60.05 ** checking absolute paths in shared objects and dynamic libraries
+#12 60.08 ** testing if installed package can be loaded from final location
+#12 60.34 ** testing if installed package keeps a record of temporary installation path
+#12 60.34 * DONE (glue)
+#12 60.62 * installing *source* package 'magrittr' ...
+#12 60.63 ** package 'magrittr' successfully unpacked and MD5 sums checked
+#12 60.63 ** using staged installation
+#12 60.64 ** R
+#12 60.65 ** inst
+#12 60.65 ** byte-compile and prepare package for lazy loading
+#12 61.07 ** help
+#12 61.11 *** installing help indices
+#12 61.15 ** building package indices
+#12 61.17 ** installing vignettes
+#12 61.18 ** testing if installed package can be loaded from temporary location
+#12 61.39 ** testing if installed package can be loaded from final location
+#12 61.61 ** testing if installed package keeps a record of temporary installation path
+#12 61.61 * DONE (magrittr)
+#12 64.40 * installing *source* package 'stringi' ...
+#12 64.51 ** package 'stringi' successfully unpacked and MD5 sums checked
+#12 64.52 ** using staged installation
+#12 64.72 checking for R_HOME... /usr/local/lib/R
+#12 64.72 checking for R... /usr/local/lib/R/bin/R
+#12 64.72 checking for endianness... little
+#12 64.90 checking for R >= 3.1.0 for C++11 use... yes
+#12 65.11 checking for R < 3.4.0 for CXX1X flag use... no
+#12 65.30 checking for cat... /usr/bin/cat
+#12 65.95 checking for local ICUDT_DIR... icu61/data
+#12 65.95 checking for gcc... gcc
+#12 66.00 checking whether the C compiler works... yes
+#12 66.08 checking for C compiler default output file name... a.out
+#12 66.09 checking for suffix of executables... 
+#12 66.17 checking whether we are cross compiling... no
+#12 66.30 checking for suffix of object files... o
+#12 66.37 checking whether we are using the GNU C compiler... yes
+#12 66.42 checking whether gcc accepts -g... yes
+#12 66.45 checking for gcc option to accept ISO C89... none needed
+#12 66.50 checking how to run the C preprocessor... g++ -std=gnu++11 -E
+#12 66.54 checking for grep that handles long lines and -e... /usr/bin/grep
+#12 66.55 checking for egrep... /usr/bin/grep -E
+#12 66.55 checking for ANSI C header files... yes
+#12 66.76 checking for sys/types.h... yes
+#12 66.82 checking for sys/stat.h... yes
+#12 66.89 checking for stdlib.h... yes
+#12 66.94 checking for string.h... yes
+#12 67.04 checking for memory.h... yes
+#12 67.10 checking for strings.h... yes
+#12 67.17 checking for inttypes.h... yes
+#12 67.26 checking for stdint.h... yes
+#12 67.33 checking for unistd.h... yes
+#12 67.41 checking elf.h usability... yes
+#12 67.46 checking elf.h presence... yes
+#12 67.49 checking for elf.h... yes
+#12 67.53 checking whether we are using the GNU C++ compiler... yes
+#12 67.57 checking whether g++ -std=gnu++11 accepts -g... yes
+#12 67.60 checking whether the C++ compiler supports the long long type... yes
+#12 68.07 checking whether the compiler implements namespaces... yes
+#12 68.11 checking whether the compiler supports Standard Template Library... yes
+#12 68.29 checking whether std::map is available... yes
+#12 69.03 checking for pkg-config... /usr/bin/pkg-config
+#12 69.03 checking with pkg-config for the system ICU4C... 66.1
+#12 69.05 checking for ICU4C >= 52... yes
+#12 69.05 checking for additional required CPPFLAGS, LDFLAGS, and LIBS... done
+#12 69.07 checking whether we may build an ICU4C-based project... yes
+#12 69.47 checking programmatically for sufficient U_ICU_VERSION_MAJOR_NUM... yes
+#12 69.54 checking programmatically if U_CHARSET_IS_UTF8 is defined and set... yes
+#12 69.94 checking for available ICU data library (ucnv, uloc, utrans)... yes
+#12 70.87 checking for available ICU data library (ucol)... yes
+#12 71.74 configure: creating ./config.status
+#12 71.89 config.status: creating src/Makevars
+#12 71.92 config.status: creating src/uconfig_local.h
+#12 71.96 config.status: creating src/install.libs.R
+#12 71.98 
+#12 71.98 *** stringi configure summary:
+#12 71.98     ICU_FOUND=1
+#12 71.98     STRINGI_CXXSTD=CXX_STD=CXX11
+#12 71.98     STRINGI_CFLAGS=   -fpic
+#12 71.98     STRINGI_CPPFLAGS=-I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H
+#12 71.98     STRINGI_CXXFLAGS=   -fpic
+#12 71.98     STRINGI_LDFLAGS=-L/usr/lib/x86_64-linux-gnu  
+#12 71.98     STRINGI_LIBS=-licui18n -licuuc -licudata  
+#12 71.98 
+#12 71.98 *** compiler settings used:
+#12 71.98     CC=gcc
+#12 71.98     CPP=g++ -std=gnu++11 -E
+#12 71.98     LD=g++ -std=gnu++11
+#12 71.98     CFLAGS=-g -O2 -fpic  
+#12 71.98     CPPFLAGS=-I/usr/local/include   -UDEBUG -DNDEBUG
+#12 71.98     CXX=g++ -std=gnu++11
+#12 71.98     CXXFLAGS=-g -O2 -fpic  
+#12 71.98     LDFLAGS=  
+#12 71.98     LIBS=  
+#12 71.98 
+#12 72.04 ** libs
+#12 72.05 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_brkiter.cpp -o stri_brkiter.o
+#12 72.94 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_collator.cpp -o stri_collator.o
+#12 73.85 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_common.cpp -o stri_common.o
+#12 74.76 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_compare.cpp -o stri_compare.o
+#12 75.74 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_base.cpp -o stri_container_base.o
+#12 76.47 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_bytesearch.cpp -o stri_container_bytesearch.o
+#12 77.62 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_listint.cpp -o stri_container_listint.o
+#12 78.39 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_listraw.cpp -o stri_container_listraw.o
+#12 79.31 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_listutf8.cpp -o stri_container_listutf8.o
+#12 80.05 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_regex.cpp -o stri_container_regex.o
+#12 80.88 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_usearch.cpp -o stri_container_usearch.o
+#12 81.84 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_utf16.cpp -o stri_container_utf16.o
+#12 82.77 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_utf8.cpp -o stri_container_utf8.o
+#12 83.79 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_container_utf8_indexable.cpp -o stri_container_utf8_indexable.o
+#12 84.57 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_encoding_conversion.cpp -o stri_encoding_conversion.o
+#12 85.78 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_encoding_detection.cpp -o stri_encoding_detection.o
+#12 88.13 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_encoding_management.cpp -o stri_encoding_management.o
+#12 89.07 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_escape.cpp -o stri_escape.o
+#12 90.02 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_exception.cpp -o stri_exception.o
+#12 90.80 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_ICU_settings.cpp -o stri_ICU_settings.o
+#12 91.49 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_join.cpp -o stri_join.o
+#12 92.69 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_length.cpp -o stri_length.o
+#12 93.65 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_pad.cpp -o stri_pad.o
+#12 94.47 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_prepare_arg.cpp -o stri_prepare_arg.o
+#12 95.47 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_random.cpp -o stri_random.o
+#12 96.48 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_reverse.cpp -o stri_reverse.o
+#12 97.31 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_count.cpp -o stri_search_class_count.o
+#12 98.18 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_detect.cpp -o stri_search_class_detect.o
+#12 99.07 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_extract.cpp -o stri_search_class_extract.o
+#12 100.2 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_locate.cpp -o stri_search_class_locate.o
+#12 101.3 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_replace.cpp -o stri_search_class_replace.o
+#12 102.7 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_split.cpp -o stri_search_class_split.o
+#12 103.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_startsendswith.cpp -o stri_search_class_startsendswith.o
+#12 104.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_subset.cpp -o stri_search_class_subset.o
+#12 105.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_class_trim.cpp -o stri_search_class_trim.o
+#12 106.7 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_common.cpp -o stri_search_common.o
+#12 107.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_coll_count.cpp -o stri_search_coll_count.o
+#12 108.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_coll_detect.cpp -o stri_search_coll_detect.o
+#12 109.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_coll_extract.cpp -o stri_search_coll_extract.o
+#12 110.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_coll_locate.cpp -o stri_search_coll_locate.o
+#12 111.7 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_coll_replace.cpp -o stri_search_coll_replace.o
+#12 112.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_coll_split.cpp -o stri_search_coll_split.o
+#12 114.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_coll_startsendswith.cpp -o stri_search_coll_startsendswith.o
+#12 115.1 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_coll_subset.cpp -o stri_search_coll_subset.o
+#12 116.2 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_boundaries_count.cpp -o stri_search_boundaries_count.o
+#12 116.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_boundaries_extract.cpp -o stri_search_boundaries_extract.o
+#12 117.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_boundaries_locate.cpp -o stri_search_boundaries_locate.o
+#12 118.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_boundaries_split.cpp -o stri_search_boundaries_split.o
+#12 119.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_fixed_count.cpp -o stri_search_fixed_count.o
+#12 120.7 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_fixed_detect.cpp -o stri_search_fixed_detect.o
+#12 121.4 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_fixed_extract.cpp -o stri_search_fixed_extract.o
+#12 122.7 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_fixed_locate.cpp -o stri_search_fixed_locate.o
+#12 124.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_fixed_replace.cpp -o stri_search_fixed_replace.o
+#12 125.2 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_fixed_split.cpp -o stri_search_fixed_split.o
+#12 127.1 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_fixed_subset.cpp -o stri_search_fixed_subset.o
+#12 128.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_fixed_startsendswith.cpp -o stri_search_fixed_startsendswith.o
+#12 129.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_in.cpp -o stri_search_in.o
+#12 129.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_other_replace.cpp -o stri_search_other_replace.o
+#12 130.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_other_split.cpp -o stri_search_other_split.o
+#12 131.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_regex_count.cpp -o stri_search_regex_count.o
+#12 132.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_regex_detect.cpp -o stri_search_regex_detect.o
+#12 133.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_regex_extract.cpp -o stri_search_regex_extract.o
+#12 135.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_regex_locate.cpp -o stri_search_regex_locate.o
+#12 136.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_regex_match.cpp -o stri_search_regex_match.o
+#12 137.3 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_regex_replace.cpp -o stri_search_regex_replace.o
+#12 138.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_regex_split.cpp -o stri_search_regex_split.o
+#12 140.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_search_regex_subset.cpp -o stri_search_regex_subset.o
+#12 141.7 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_sort.cpp -o stri_sort.o
+#12 145.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_stats.cpp -o stri_stats.o
+#12 146.2 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_stringi.cpp -o stri_stringi.o
+#12 147.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_sub.cpp -o stri_sub.o
+#12 148.4 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_test.cpp -o stri_test.o
+#12 149.3 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_time_zone.cpp -o stri_time_zone.o
+#12 150.3 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_time_calendar.cpp -o stri_time_calendar.o
+#12 151.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_time_symbols.cpp -o stri_time_symbols.o
+#12 152.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_time_format.cpp -o stri_time_format.o
+#12 153.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_trans_casemap.cpp -o stri_trans_casemap.o
+#12 155.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_trans_other.cpp -o stri_trans_other.o
+#12 155.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_trans_normalization.cpp -o stri_trans_normalization.o
+#12 157.4 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_trans_transliterate.cpp -o stri_trans_transliterate.o
+#12 158.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_ucnv.cpp -o stri_ucnv.o
+#12 159.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_uloc.cpp -o stri_uloc.o
+#12 160.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_utils.cpp -o stri_utils.o
+#12 162.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I.    -UDEBUG -DNDEBUG -DU_HAVE_ELF_H  -I/usr/local/include -fpic -fpic  -g -O2  -c stri_wrap.cpp -o stri_wrap.o
+#12 164.7 g++ -std=gnu++11 -shared -L/usr/local/lib -o stringi.so stri_brkiter.o stri_collator.o stri_common.o stri_compare.o stri_container_base.o stri_container_bytesearch.o stri_container_listint.o stri_container_listraw.o stri_container_listutf8.o stri_container_regex.o stri_container_usearch.o stri_container_utf16.o stri_container_utf8.o stri_container_utf8_indexable.o stri_encoding_conversion.o stri_encoding_detection.o stri_encoding_management.o stri_escape.o stri_exception.o stri_ICU_settings.o stri_join.o stri_length.o stri_pad.o stri_prepare_arg.o stri_random.o stri_reverse.o stri_search_class_count.o stri_search_class_detect.o stri_search_class_extract.o stri_search_class_locate.o stri_search_class_replace.o stri_search_class_split.o stri_search_class_startsendswith.o stri_search_class_subset.o stri_search_class_trim.o stri_search_common.o stri_search_coll_count.o stri_search_coll_detect.o stri_search_coll_extract.o stri_search_coll_locate.o stri_search_coll_replace.o stri_search_coll_split.o stri_search_coll_startsendswith.o stri_search_coll_subset.o stri_search_boundaries_count.o stri_search_boundaries_extract.o stri_search_boundaries_locate.o stri_search_boundaries_split.o stri_search_fixed_count.o stri_search_fixed_detect.o stri_search_fixed_extract.o stri_search_fixed_locate.o stri_search_fixed_replace.o stri_search_fixed_split.o stri_search_fixed_subset.o stri_search_fixed_startsendswith.o stri_search_in.o stri_search_other_replace.o stri_search_other_split.o stri_search_regex_count.o stri_search_regex_detect.o stri_search_regex_extract.o stri_search_regex_locate.o stri_search_regex_match.o stri_search_regex_replace.o stri_search_regex_split.o stri_search_regex_subset.o stri_sort.o stri_stats.o stri_stringi.o stri_sub.o stri_test.o stri_time_zone.o stri_time_calendar.o stri_time_symbols.o stri_time_format.o stri_trans_casemap.o stri_trans_other.o stri_trans_normalization.o stri_trans_transliterate.o stri_ucnv.o stri_uloc.o stri_utils.o stri_wrap.o -L/usr/lib/x86_64-linux-gnu -licui18n -licuuc -licudata
+#12 165.2 installing via 'install.libs.R' to /usr/local/lib/R/site-library/00LOCK-stringi/00new/stringi
+#12 165.3 ** R
+#12 165.3 ** inst
+#12 165.3 ** byte-compile and prepare package for lazy loading
+#12 166.8 ** help
+#12 167.5 *** installing help indices
+#12 167.9 ** building package indices
+#12 168.3 ** testing if installed package can be loaded from temporary location
+#12 168.7 ** checking absolute paths in shared objects and dynamic libraries
+#12 168.7 ** testing if installed package can be loaded from final location
+#12 169.0 ** testing if installed package keeps a record of temporary installation path
+#12 169.0 * DONE (stringi)
+#12 169.6 * installing *source* package 'digest' ...
+#12 169.6 ** package 'digest' successfully unpacked and MD5 sums checked
+#12 169.6 ** using staged installation
+#12 169.6 ** libs
+#12 169.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c aes.c -o aes.o
+#12 170.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c crc32.c -o crc32.o
+#12 170.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c digest.c -o digest.o
+#12 170.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#12 170.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c md5.c -o md5.o
+#12 170.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c pmurhash.c -o pmurhash.o
+#12 170.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c raes.c -o raes.o
+#12 171.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c sha1.c -o sha1.o
+#12 171.5 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c sha2.c -o sha2.o
+#12 171.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c sha256.c -o sha256.o
+#12 172.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c xxhash.c -o xxhash.o
+#12 173.0 gcc -shared -L/usr/local/lib -o digest.so aes.o crc32.o digest.o init.o md5.o pmurhash.o raes.o sha1.o sha2.o sha256.o xxhash.o
+#12 173.0 installing to /usr/local/lib/R/site-library/00LOCK-digest/00new/digest/libs
+#12 173.0 ** R
+#12 173.0 ** inst
+#12 173.0 ** byte-compile and prepare package for lazy loading
+#12 173.6 ** help
+#12 173.6 *** installing help indices
+#12 173.7 ** building package indices
+#12 173.7 ** installing vignettes
+#12 173.7 ** testing if installed package can be loaded from temporary location
+#12 173.9 ** checking absolute paths in shared objects and dynamic libraries
+#12 174.0 ** testing if installed package can be loaded from final location
+#12 174.2 ** testing if installed package keeps a record of temporary installation path
+#12 174.2 * DONE (digest)
+#12 174.6 * installing *source* package 'gtable' ...
+#12 174.6 ** package 'gtable' successfully unpacked and MD5 sums checked
+#12 174.6 ** using staged installation
+#12 174.6 ** R
+#12 174.6 ** byte-compile and prepare package for lazy loading
+#12 175.3 ** help
+#12 175.4 *** installing help indices
+#12 175.4 ** building package indices
+#12 175.5 ** testing if installed package can be loaded from temporary location
+#12 175.7 ** testing if installed package can be loaded from final location
+#12 175.9 ** testing if installed package keeps a record of temporary installation path
+#12 175.9 * DONE (gtable)
+#12 176.3 * installing *source* package 'lazyeval' ...
+#12 176.3 ** package 'lazyeval' successfully unpacked and MD5 sums checked
+#12 176.3 ** using staged installation
+#12 176.3 ** libs
+#12 176.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c expr.c -o expr.o
+#12 176.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#12 176.5 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c interp.c -o interp.o
+#12 176.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c lazy.c -o lazy.o
+#12 176.8 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c name.c -o name.o
+#12 176.8 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c utils.c -o utils.o
+#12 177.0 gcc -shared -L/usr/local/lib -o lazyeval.so expr.o init.o interp.o lazy.o name.o utils.o
+#12 177.0 installing to /usr/local/lib/R/site-library/00LOCK-lazyeval/00new/lazyeval/libs
+#12 177.0 ** R
+#12 177.0 ** inst
+#12 177.0 ** byte-compile and prepare package for lazy loading
+#12 177.7 ** help
+#12 177.8 *** installing help indices
+#12 177.9 ** building package indices
+#12 178.0 ** installing vignettes
+#12 178.0 ** testing if installed package can be loaded from temporary location
+#12 178.3 ** checking absolute paths in shared objects and dynamic libraries
+#12 178.3 ** testing if installed package can be loaded from final location
+#12 178.5 ** testing if installed package keeps a record of temporary installation path
+#12 178.5 * DONE (lazyeval)
+#12 179.2 * installing *source* package 'rlang' ...
+#12 179.2 ** package 'rlang' successfully unpacked and MD5 sums checked
+#12 179.2 ** using staged installation
+#12 179.3 ** libs
+#12 179.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I./lib/  -I/usr/local/include  -fpic  -g -O2  -c capture.c -o capture.o
+#12 179.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I./lib/  -I/usr/local/include  -fpic  -g -O2  -c export.c -o export.o
+#12 179.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I./lib/  -I/usr/local/include  -fpic  -g -O2  -c internal.c -o internal.o
+#12 180.5 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I./lib/  -I/usr/local/include  -fpic  -g -O2  -c lib.c -o lib.o
+#12 181.7 gcc -shared -L/usr/local/lib -o rlang.so capture.o export.o internal.o lib.o
+#12 181.7 installing to /usr/local/lib/R/site-library/00LOCK-rlang/00new/rlang/libs
+#12 181.7 ** R
+#12 181.8 ** byte-compile and prepare package for lazy loading
+#12 185.7 ** help
+#12 186.7 *** installing help indices
+#12 187.1 *** copying figures
+#12 187.1 ** building package indices
+#12 187.7 ** testing if installed package can be loaded from temporary location
+#12 188.0 ** checking absolute paths in shared objects and dynamic libraries
+#12 188.0 ** testing if installed package can be loaded from final location
+#12 188.4 ** testing if installed package keeps a record of temporary installation path
+#12 188.4 * DONE (rlang)
+#12 188.7 * installing *source* package 'viridisLite' ...
+#12 188.7 ** package 'viridisLite' successfully unpacked and MD5 sums checked
+#12 188.7 ** using staged installation
+#12 188.7 ** R
+#12 188.8 ** data
+#12 188.8 *** moving datasets to lazyload DB
+#12 188.8 ** byte-compile and prepare package for lazy loading
+#12 189.1 ** help
+#12 189.1 *** installing help indices
+#12 189.1 *** copying figures
+#12 189.1 ** building package indices
+#12 189.2 ** testing if installed package can be loaded from temporary location
+#12 189.4 ** testing if installed package can be loaded from final location
+#12 189.6 ** testing if installed package keeps a record of temporary installation path
+#12 189.6 * DONE (viridisLite)
+#12 190.0 * installing *source* package 'withr' ...
+#12 190.0 ** package 'withr' successfully unpacked and MD5 sums checked
+#12 190.0 ** using staged installation
+#12 190.1 ** R
+#12 190.1 ** inst
+#12 190.1 ** byte-compile and prepare package for lazy loading
+#12 190.7 ** help
+#12 190.8 *** installing help indices
+#12 190.8 ** building package indices
+#12 190.9 ** installing vignettes
+#12 190.9 ** testing if installed package can be loaded from temporary location
+#12 191.1 ** testing if installed package can be loaded from final location
+#12 191.4 ** testing if installed package keeps a record of temporary installation path
+#12 191.4 * DONE (withr)
+#12 192.7 * installing *source* package 'Rcpp' ...
+#12 192.8 ** package 'Rcpp' successfully unpacked and MD5 sums checked
+#12 192.8 ** using staged installation
+#12 192.8 ** libs
+#12 192.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include  -fpic  -g -O2  -c Date.cpp -o Date.o
+#12 198.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include  -fpic  -g -O2  -c Module.cpp -o Module.o
+#12 207.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include  -fpic  -g -O2  -c Rcpp_init.cpp -o Rcpp_init.o
+#12 213.1 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include  -fpic  -g -O2  -c api.cpp -o api.o
+#12 217.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include  -fpic  -g -O2  -c attributes.cpp -o attributes.o
+#12 239.2 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include/  -I/usr/local/include  -fpic  -g -O2  -c barrier.cpp -o barrier.o
+#12 239.5 g++ -std=gnu++11 -shared -L/usr/local/lib -o Rcpp.so Date.o Module.o Rcpp_init.o api.o attributes.o barrier.o
+#12 239.7 installing to /usr/local/lib/R/site-library/00LOCK-Rcpp/00new/Rcpp/libs
+#12 239.8 ** R
+#12 239.8 ** inst
+#12 239.9 ** byte-compile and prepare package for lazy loading
+#12 242.3 ** help
+#12 242.4 *** installing help indices
+#12 242.5 ** building package indices
+#12 242.6 ** installing vignettes
+#12 242.6 ** testing if installed package can be loaded from temporary location
+#12 243.0 ** checking absolute paths in shared objects and dynamic libraries
+#12 243.0 ** testing if installed package can be loaded from final location
+#12 243.6 ** testing if installed package keeps a record of temporary installation path
+#12 243.6 * DONE (Rcpp)
+#12 244.0 * installing *source* package 'assertthat' ...
+#12 244.0 ** package 'assertthat' successfully unpacked and MD5 sums checked
+#12 244.0 ** using staged installation
+#12 244.0 ** R
+#12 244.0 ** byte-compile and prepare package for lazy loading
+#12 244.5 ** help
+#12 244.5 *** installing help indices
+#12 244.5 ** building package indices
+#12 244.6 ** testing if installed package can be loaded from temporary location
+#12 244.8 ** testing if installed package can be loaded from final location
+#12 245.0 ** testing if installed package keeps a record of temporary installation path
+#12 245.0 * DONE (assertthat)
+#12 245.3 * installing *source* package 'pkgconfig' ...
+#12 245.3 ** package 'pkgconfig' successfully unpacked and MD5 sums checked
+#12 245.3 ** using staged installation
+#12 245.4 ** R
+#12 245.4 ** inst
+#12 245.4 ** byte-compile and prepare package for lazy loading
+#12 245.9 ** help
+#12 245.9 *** installing help indices
+#12 245.9 ** building package indices
+#12 246.0 ** testing if installed package can be loaded from temporary location
+#12 246.3 ** testing if installed package can be loaded from final location
+#12 246.5 ** testing if installed package keeps a record of temporary installation path
+#12 246.5 * DONE (pkgconfig)
+#12 246.8 * installing *source* package 'R6' ...
+#12 246.8 ** package 'R6' successfully unpacked and MD5 sums checked
+#12 246.8 ** using staged installation
+#12 246.8 ** R
+#12 246.8 ** byte-compile and prepare package for lazy loading
+#12 247.7 ** help
+#12 247.8 *** installing help indices
+#12 247.8 ** building package indices
+#12 247.8 ** testing if installed package can be loaded from temporary location
+#12 248.1 ** testing if installed package can be loaded from final location
+#12 248.4 ** testing if installed package keeps a record of temporary installation path
+#12 248.4 * DONE (R6)
+#12 273.1 * installing *source* package 'BH' ...
+#12 274.4 ** package 'BH' successfully unpacked and MD5 sums checked
+#12 274.4 ** using staged installation
+#12 274.4 ** inst
+#12 276.9 ** help
+#12 276.9 *** installing help indices
+#12 276.9 ** building package indices
+#12 277.0 ** testing if installed package can be loaded from temporary location
+#12 277.5 ** testing if installed package can be loaded from final location
+#12 277.8 ** testing if installed package keeps a record of temporary installation path
+#12 278.1 * DONE (BH)
+#12 279.4 * installing *source* package 'plogr' ...
+#12 279.4 ** package 'plogr' successfully unpacked and MD5 sums checked
+#12 279.5 ** using staged installation
+#12 279.5 ** R
+#12 279.5 ** inst
+#12 279.5 ** byte-compile and prepare package for lazy loading
+#12 280.0 ** help
+#12 280.0 *** installing help indices
+#12 280.0 ** building package indices
+#12 280.0 ** testing if installed package can be loaded from temporary location
+#12 280.3 ** testing if installed package can be loaded from final location
+#12 280.5 ** testing if installed package keeps a record of temporary installation path
+#12 280.5 * DONE (plogr)
+#12 280.9 * installing *source* package 'munsell' ...
+#12 280.9 ** package 'munsell' successfully unpacked and MD5 sums checked
+#12 280.9 ** using staged installation
+#12 280.9 ** R
+#12 281.0 ** inst
+#12 281.0 ** byte-compile and prepare package for lazy loading
+#12 281.9 ** help
+#12 282.0 *** installing help indices
+#12 282.1 *** copying figures
+#12 282.1 ** building package indices
+#12 282.2 ** testing if installed package can be loaded from temporary location
+#12 282.6 ** testing if installed package can be loaded from final location
+#12 282.9 ** testing if installed package keeps a record of temporary installation path
+#12 282.9 * DONE (munsell)
+#12 283.4 * installing *source* package 'cli' ...
+#12 283.4 ** package 'cli' successfully unpacked and MD5 sums checked
+#12 283.4 ** using staged installation
+#12 283.4 ** R
+#12 283.4 ** inst
+#12 283.4 ** byte-compile and prepare package for lazy loading
+#12 284.2 ** help
+#12 284.2 *** installing help indices
+#12 284.3 *** copying figures
+#12 284.3 ** building package indices
+#12 284.3 ** testing if installed package can be loaded from temporary location
+#12 284.6 ** testing if installed package can be loaded from final location
+#12 285.0 ** testing if installed package keeps a record of temporary installation path
+#12 285.0 * DONE (cli)
+#12 285.4 * installing *source* package 'purrr' ...
+#12 285.4 ** package 'purrr' successfully unpacked and MD5 sums checked
+#12 285.4 ** using staged installation
+#12 285.4 ** libs
+#12 285.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c backports.c -o backports.o
+#12 285.5 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c coerce.c -o coerce.o
+#12 285.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c conditions.c -o conditions.o
+#12 285.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c flatten.c -o flatten.o
+#12 285.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#12 285.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c map.c -o map.o
+#12 286.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c pluck.c -o pluck.o
+#12 286.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c transpose.c -o transpose.o
+#12 286.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c utils.c -o utils.o
+#12 286.5 gcc -shared -L/usr/local/lib -o purrr.so backports.o coerce.o conditions.o flatten.o init.o map.o pluck.o transpose.o utils.o
+#12 286.5 installing to /usr/local/lib/R/site-library/00LOCK-purrr/00new/purrr/libs
+#12 286.5 ** R
+#12 286.5 ** inst
+#12 286.6 ** byte-compile and prepare package for lazy loading
+#12 288.2 ** help
+#12 288.5 *** installing help indices
+#12 288.7 *** copying figures
+#12 288.7 ** building package indices
+#12 288.9 ** installing vignettes
+#12 288.9 ** testing if installed package can be loaded from temporary location
+#12 289.2 ** checking absolute paths in shared objects and dynamic libraries
+#12 289.3 ** testing if installed package can be loaded from final location
+#12 289.7 ** testing if installed package keeps a record of temporary installation path
+#12 289.7 * DONE (purrr)
+#12 290.5 * installing *source* package 'plyr' ...
+#12 290.5 ** package 'plyr' successfully unpacked and MD5 sums checked
+#12 290.5 ** using staged installation
+#12 290.5 ** libs
+#12 290.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c RcppExports.cpp -o RcppExports.o
+#12 296.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c loop_apply.c -o loop_apply.o
+#12 296.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c split-numeric.cpp -o split-numeric.o
+#12 302.0 g++ -std=gnu++11 -shared -L/usr/local/lib -o plyr.so RcppExports.o loop_apply.o split-numeric.o
+#12 302.0 installing to /usr/local/lib/R/site-library/00LOCK-plyr/00new/plyr/libs
+#12 302.0 ** R
+#12 302.0 ** data
+#12 302.0 *** moving datasets to lazyload DB
+#12 302.4 ** inst
+#12 302.4 ** byte-compile and prepare package for lazy loading
+#12 304.0 ** help
+#12 304.3 *** installing help indices
+#12 304.4 ** building package indices
+#12 304.6 ** testing if installed package can be loaded from temporary location
+#12 304.9 ** checking absolute paths in shared objects and dynamic libraries
+#12 305.0 ** testing if installed package can be loaded from final location
+#12 305.3 ** testing if installed package keeps a record of temporary installation path
+#12 305.3 * DONE (plyr)
+#12 306.0 * installing *source* package 'stringr' ...
+#12 306.0 ** package 'stringr' successfully unpacked and MD5 sums checked
+#12 306.0 ** using staged installation
+#12 306.0 ** R
+#12 306.0 ** data
+#12 306.0 *** moving datasets to lazyload DB
+#12 306.1 ** inst
+#12 306.1 ** byte-compile and prepare package for lazy loading
+#12 306.6 ** help
+#12 306.7 *** installing help indices
+#12 306.8 *** copying figures
+#12 306.8 ** building package indices
+#12 306.8 ** installing vignettes
+#12 306.9 ** testing if installed package can be loaded from temporary location
+#12 307.1 ** testing if installed package can be loaded from final location
+#12 307.3 ** testing if installed package keeps a record of temporary installation path
+#12 307.3 * DONE (stringr)
+#12 308.6 * installing *source* package 'pillar' ...
+#12 308.7 ** package 'pillar' successfully unpacked and MD5 sums checked
+#12 308.7 ** using staged installation
+#12 308.7 ** R
+#12 308.7 ** byte-compile and prepare package for lazy loading
+#12 310.0 ** help
+#12 310.1 *** installing help indices
+#12 310.1 *** copying figures
+#12 310.1 ** building package indices
+#12 310.2 ** testing if installed package can be loaded from temporary location
+#12 310.4 ** testing if installed package can be loaded from final location
+#12 310.7 ** testing if installed package keeps a record of temporary installation path
+#12 310.7 * DONE (pillar)
+#12 311.0 * installing *source* package 'reshape2' ...
+#12 311.0 ** package 'reshape2' successfully unpacked and MD5 sums checked
+#12 311.0 ** using staged installation
+#12 311.0 ** libs
+#12 311.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c RcppExports.cpp -o RcppExports.o
+#12 317.7 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c melt.cpp -o melt.o
+#12 324.0 g++ -std=gnu++11 -shared -L/usr/local/lib -o reshape2.so RcppExports.o melt.o
+#12 324.1 installing to /usr/local/lib/R/site-library/00LOCK-reshape2/00new/reshape2/libs
+#12 324.1 ** R
+#12 324.1 ** data
+#12 324.1 *** moving datasets to lazyload DB
+#12 324.2 ** inst
+#12 324.2 ** byte-compile and prepare package for lazy loading
+#12 324.8 ** help
+#12 324.8 *** installing help indices
+#12 324.9 ** building package indices
+#12 324.9 ** testing if installed package can be loaded from temporary location
+#12 325.3 ** checking absolute paths in shared objects and dynamic libraries
+#12 325.3 ** testing if installed package can be loaded from final location
+#12 325.8 ** testing if installed package keeps a record of temporary installation path
+#12 325.8 * DONE (reshape2)
+#12 326.2 * installing *source* package 'scales' ...
+#12 326.2 ** package 'scales' successfully unpacked and MD5 sums checked
+#12 326.2 ** using staged installation
+#12 326.2 ** libs
+#12 326.2 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c RcppExports.cpp -o RcppExports.o
+#12 332.1 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c colors.cpp -o colors.o
+#12 337.8 g++ -std=gnu++11 -shared -L/usr/local/lib -o scales.so RcppExports.o colors.o
+#12 338.0 installing to /usr/local/lib/R/site-library/00LOCK-scales/00new/scales/libs
+#12 338.0 ** R
+#12 338.0 ** byte-compile and prepare package for lazy loading
+#12 340.9 ** help
+#12 341.1 *** installing help indices
+#12 341.2 *** copying figures
+#12 341.2 ** building package indices
+#12 341.3 ** testing if installed package can be loaded from temporary location
+#12 341.7 ** checking absolute paths in shared objects and dynamic libraries
+#12 341.8 ** testing if installed package can be loaded from final location
+#12 342.2 ** testing if installed package keeps a record of temporary installation path
+#12 342.2 * DONE (scales)
+#12 342.6 * installing *source* package 'tidyselect' ...
+#12 342.6 ** package 'tidyselect' successfully unpacked and MD5 sums checked
+#12 342.6 ** using staged installation
+#12 342.6 ** libs
+#12 342.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c RcppExports.cpp -o RcppExports.o
+#12 348.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c combine_variables.cpp -o combine_variables.o
+#12 354.8 g++ -std=gnu++11 -shared -L/usr/local/lib -o tidyselect.so RcppExports.o combine_variables.o
+#12 354.9 installing to /usr/local/lib/R/site-library/00LOCK-tidyselect/00new/tidyselect/libs
+#12 354.9 ** R
+#12 354.9 ** byte-compile and prepare package for lazy loading
+#12 355.7 ** help
+#12 355.8 *** installing help indices
+#12 355.8 ** building package indices
+#12 355.8 ** testing if installed package can be loaded from temporary location
+#12 356.3 ** checking absolute paths in shared objects and dynamic libraries
+#12 356.3 ** testing if installed package can be loaded from final location
+#12 356.6 ** testing if installed package keeps a record of temporary installation path
+#12 356.6 * DONE (tidyselect)
+#12 357.1 * installing *source* package 'tibble' ...
+#12 357.1 ** package 'tibble' successfully unpacked and MD5 sums checked
+#12 357.1 ** using staged installation
+#12 357.1 ** libs
+#12 357.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c coerce.c -o coerce.o
+#12 357.2 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#12 357.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c matrixToDataFrame.c -o matrixToDataFrame.o
+#12 357.4 gcc -shared -L/usr/local/lib -o tibble.so coerce.o init.o matrixToDataFrame.o
+#12 357.4 installing to /usr/local/lib/R/site-library/00LOCK-tibble/00new/tibble/libs
+#12 357.4 ** R
+#12 357.4 ** inst
+#12 357.4 ** byte-compile and prepare package for lazy loading
+#12 359.1 ** help
+#12 359.2 *** installing help indices
+#12 359.3 *** copying figures
+#12 359.3 ** building package indices
+#12 359.4 ** installing vignettes
+#12 359.4 ** testing if installed package can be loaded from temporary location
+#12 359.7 ** checking absolute paths in shared objects and dynamic libraries
+#12 359.7 ** testing if installed package can be loaded from final location
+#12 360.0 ** testing if installed package keeps a record of temporary installation path
+#12 360.0 * DONE (tibble)
+#12 361.1 * installing *source* package 'ggplot2' ...
+#12 361.1 ** package 'ggplot2' successfully unpacked and MD5 sums checked
+#12 361.1 ** using staged installation
+#12 361.1 ** R
+#12 361.2 ** data
+#12 361.2 *** moving datasets to lazyload DB
+#12 361.9 ** inst
+#12 361.9 ** byte-compile and prepare package for lazy loading
+#12 370.8 ** help
+#12 371.6 *** installing help indices
+#12 372.0 *** copying figures
+#12 372.0 ** building package indices
+#12 372.7 ** installing vignettes
+#12 372.7 ** testing if installed package can be loaded from temporary location
+#12 373.2 ** testing if installed package can be loaded from final location
+#12 374.1 ** testing if installed package keeps a record of temporary installation path
+#12 374.1 * DONE (ggplot2)
+#12 375.2 * installing *source* package 'dplyr' ...
+#12 375.3 ** package 'dplyr' successfully unpacked and MD5 sums checked
+#12 375.3 ** using staged installation
+#12 375.4 ** libs
+#12 375.4 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c RcppExports.cpp -o RcppExports.o
+#12 389.8 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c address.cpp -o address.o
+#12 394.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c api.cpp -o api.o
+#12 404.7 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c arrange.cpp -o arrange.o
+#12 417.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c between.cpp -o between.o
+#12 421.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c bind.cpp -o bind.o
+#12 433.4 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c distinct.cpp -o distinct.o
+#12 445.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c encoding.cpp -o encoding.o
+#12 449.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c filter.cpp -o filter.o
+#12 463.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c group_indices.cpp -o group_indices.o
+#12 476.2 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c hybrid.cpp -o hybrid.o
+#12 482.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c init.cpp -o init.o
+#12 486.3 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c join.cpp -o join.o
+#12 495.4 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c join_exports.cpp -o join_exports.o
+#12 505.6 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c mutate.cpp -o mutate.o
+#12 555.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c rlang-export.c -o rlang-export.o
+#12 556.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c rlang.cpp -o rlang.o
+#12 560.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c select.cpp -o select.o
+#12 567.1 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c set.cpp -o set.o
+#12 577.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c summarise.cpp -o summarise.o
+#12 616.4 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c test.cpp -o test.o
+#12 621.3 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c utils-bindings.cpp -o utils-bindings.o
+#12 625.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c utils.cpp -o utils.o
+#12 634.0 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG -I../inst/include -DRCPP_DEFAULT_INCLUDE_CALL=false -DCOMPILING_DPLYR -DRCPP_USING_UTF8_ERROR_STRING -DRCPP_USE_UNWIND_PROTECT -DBOOST_NO_AUTO_PTR  -I"/usr/local/lib/R/site-library/BH/include" -I"/usr/local/lib/R/site-library/plogr/include" -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c window.cpp -o window.o
+#12 638.1 g++ -std=gnu++11 -shared -L/usr/local/lib -o dplyr.so RcppExports.o address.o api.o arrange.o between.o bind.o distinct.o encoding.o filter.o group_indices.o hybrid.o init.o join.o join_exports.o mutate.o rlang-export.o rlang.o select.o set.o summarise.o test.o utils-bindings.o utils.o window.o
+#12 639.1 installing to /usr/local/lib/R/site-library/00LOCK-dplyr/00new/dplyr/libs
+#12 639.2 ** R
+#12 639.2 ** data
+#12 639.2 *** moving datasets to lazyload DB
+#12 639.6 ** inst
+#12 639.6 ** byte-compile and prepare package for lazy loading
+#12 643.5 ** help
+#12 643.8 *** installing help indices
+#12 644.1 *** copying figures
+#12 644.1 ** building package indices
+#12 644.4 ** installing vignettes
+#12 644.4 ** testing if installed package can be loaded from temporary location
+#12 644.9 ** checking absolute paths in shared objects and dynamic libraries
+#12 644.9 ** testing if installed package can be loaded from final location
+#12 645.5 ** testing if installed package keeps a record of temporary installation path
+#12 645.5 * DONE (dplyr)
+#12 645.9 * installing *source* package 'ggrepel' ...
+#12 645.9 ** package 'ggrepel' successfully unpacked and MD5 sums checked
+#12 645.9 ** using staged installation
+#12 645.9 ** libs
+#12 645.9 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c RcppExports.cpp -o RcppExports.o
+#12 652.5 g++ -std=gnu++11 -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/Rcpp/include" -I/usr/local/include  -fpic  -g -O2  -c repel_boxes.cpp -o repel_boxes.o
+#12 661.9 g++ -std=gnu++11 -shared -L/usr/local/lib -o ggrepel.so RcppExports.o repel_boxes.o
+#12 662.0 installing to /usr/local/lib/R/site-library/00LOCK-ggrepel/00new/ggrepel/libs
+#12 662.0 ** R
+#12 662.0 ** inst
+#12 662.0 ** byte-compile and prepare package for lazy loading
+#12 663.3 ** help
+#12 663.3 *** installing help indices
+#12 663.3 ** building package indices
+#12 663.4 ** installing vignettes
+#12 663.4 ** testing if installed package can be loaded from temporary location
+#12 664.0 ** checking absolute paths in shared objects and dynamic libraries
+#12 664.0 ** testing if installed package can be loaded from final location
+#12 664.6 ** testing if installed package keeps a record of temporary installation path
+#12 664.6 * DONE (ggrepel)
+#12 664.6 
+#12 664.6 The downloaded source packages are in
+#12 664.6 	'/tmp/RtmpgH5iuH/downloaded_packages'
+#12 DONE 666.0s
+
+#13 [ 9/11] RUN Rscript -e 'BiocManager::install("KEGGREST")'
+#13 0.896 'getOption("repos")' replaces Bioconductor standard repositories, see
+#13 0.896 'help("repositories", package = "BiocManager")' for details.
+#13 0.896 Replacement repositories:
+#13 0.896     CRAN: https://packagemanager.posit.co/cran/2019-03-04
+#13 8.183 Bioconductor version 3.9 (BiocManager 1.30.25), R 3.6.1 (2019-07-05)
+#13 8.185 Installing package(s) 'KEGGREST'
+#13 9.056 also installing the dependencies 'sys', 'askpass', 'zlibbioc', 'curl', 'jsonlite', 'mime', 'openssl', 'BiocGenerics', 'S4Vectors', 'IRanges', 'XVector', 'httr', 'png', 'Biostrings'
+#13 9.056 
+#13 9.060 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/sys_3.0.tar.gz'
+#13 9.912 Content type 'application/x-tar' length 17392 bytes (16 KB)
+#13 9.912 ==================================================
+#13 9.912 downloaded 16 KB
+#13 9.912 
+#13 9.921 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/askpass_1.1.tar.gz'
+#13 10.68 Content type 'application/x-tar' length 5693 bytes
+#13 10.68 ==================================================
+#13 10.68 downloaded 5693 bytes
+#13 10.68 
+#13 10.68 trying URL 'https://bioconductor.org/packages/3.9/bioc/src/contrib/zlibbioc_1.30.0.tar.gz'
+#13 11.59 Content type 'application/octet-stream' length 256984 bytes (250 KB)
+#13 11.70 ==================================================
+#13 11.90 downloaded 250 KB
+#13 11.90 
+#13 11.91 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/curl_3.3.tar.gz'
+#13 12.66 Content type 'application/x-tar' length 372413 bytes (363 KB)
+#13 12.66 ==================================================
+#13 12.73 downloaded 363 KB
+#13 12.73 
+#13 12.74 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/jsonlite_1.6.tar.gz'
+#13 13.56 Content type 'application/x-tar' length 1050963 bytes (1.0 MB)
+#13 13.56 ==================================================
+#13 13.68 downloaded 1.0 MB
+#13 13.68 
+#13 13.69 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/mime_0.6.tar.gz'
+#13 14.46 Content type 'application/x-tar' length 12850 bytes (12 KB)
+#13 14.46 ==================================================
+#13 14.46 downloaded 12 KB
+#13 14.46 
+#13 14.46 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/openssl_1.2.2.tar.gz'
+#13 15.33 Content type 'application/x-tar' length 1193376 bytes (1.1 MB)
+#13 15.33 ==================================================
+#13 15.49 downloaded 1.1 MB
+#13 15.49 
+#13 15.50 trying URL 'https://bioconductor.org/packages/3.9/bioc/src/contrib/BiocGenerics_0.30.0.tar.gz'
+#13 16.37 Content type 'application/octet-stream' length 45785 bytes (44 KB)
+#13 16.37 ==================================================
+#13 16.39 downloaded 44 KB
+#13 16.39 
+#13 16.40 trying URL 'https://bioconductor.org/packages/3.9/bioc/src/contrib/S4Vectors_0.22.1.tar.gz'
+#13 17.32 Content type 'application/octet-stream' length 637005 bytes (622 KB)
+#13 17.43 ==================================================
+#13 17.80 downloaded 622 KB
+#13 17.80 
+#13 17.82 trying URL 'https://bioconductor.org/packages/3.9/bioc/src/contrib/IRanges_2.18.3.tar.gz'
+#13 18.73 Content type 'application/octet-stream' length 459812 bytes (449 KB)
+#13 18.85 ==================================================
+#13 19.14 downloaded 449 KB
+#13 19.14 
+#13 19.14 trying URL 'https://bioconductor.org/packages/3.9/bioc/src/contrib/XVector_0.24.0.tar.gz'
+#13 20.02 Content type 'application/octet-stream' length 66023 bytes (64 KB)
+#13 20.02 ==================================================
+#13 20.05 downloaded 64 KB
+#13 20.05 
+#13 20.05 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/httr_1.4.0.tar.gz'
+#13 20.93 Content type 'application/x-tar' length 155039 bytes (151 KB)
+#13 20.93 ==================================================
+#13 20.95 downloaded 151 KB
+#13 20.95 
+#13 20.95 trying URL 'https://packagemanager.posit.co/cran/2019-03-04/src/contrib/png_0.1-7.tar.gz'
+#13 21.72 Content type 'application/x-tar' length 24951 bytes (24 KB)
+#13 21.72 ==================================================
+#13 21.72 downloaded 24 KB
+#13 21.72 
+#13 21.73 trying URL 'https://bioconductor.org/packages/3.9/bioc/src/contrib/Biostrings_2.52.0.tar.gz'
+#13 22.62 Content type 'application/octet-stream' length 12708343 bytes (12.1 MB)
+#13 22.84 ==================================================
+#13 24.26 downloaded 12.1 MB
+#13 24.26 
+#13 24.27 trying URL 'https://bioconductor.org/packages/3.9/bioc/src/contrib/KEGGREST_1.24.1.tar.gz'
+#13 25.11 Content type 'application/octet-stream' length 24930 bytes (24 KB)
+#13 25.21 ==================================================
+#13 25.21 downloaded 24 KB
+#13 25.21 
+#13 25.47 * installing *source* package 'sys' ...
+#13 25.47 ** package 'sys' successfully unpacked and MD5 sums checked
+#13 25.47 ** using staged installation
+#13 25.50 ** libs
+#13 25.51 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c exec.c -o exec.o
+#13 25.71 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#13 25.77 gcc -shared -L/usr/local/lib -o sys.so exec.o init.o
+#13 25.80 installing to /usr/local/lib/R/site-library/00LOCK-sys/00new/sys/libs
+#13 25.80 ** R
+#13 25.81 ** inst
+#13 25.81 ** byte-compile and prepare package for lazy loading
+#13 26.12 ** help
+#13 26.14 *** installing help indices
+#13 26.16 ** building package indices
+#13 26.18 ** testing if installed package can be loaded from temporary location
+#13 26.38 ** checking absolute paths in shared objects and dynamic libraries
+#13 26.41 ** testing if installed package can be loaded from final location
+#13 26.60 ** testing if installed package keeps a record of temporary installation path
+#13 26.60 * DONE (sys)
+#13 26.91 * installing *source* package 'zlibbioc' ...
+#13 26.91 ** using staged installation
+#13 27.14 configure: creating ./config.status
+#13 27.32 config.status: creating src/Makevars
+#13 27.40 ** libs
+#13 27.40 mkdir -p "/usr/local/lib/R/site-library/00LOCK-zlibbioc/00new/zlibbioc/include"
+#13 27.41 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c R_init_zlibbioc.c -o R_init_zlibbioc.o
+#13 27.43 gcc -shared -L/usr/local/lib -o zlibbioc.so R_init_zlibbioc.o
+#13 27.45 installing to /usr/local/lib/R/site-library/00LOCK-zlibbioc/00new/zlibbioc/libs
+#13 27.46 ** R
+#13 27.46 ** inst
+#13 27.47 ** byte-compile and prepare package for lazy loading
+#13 27.74 ** help
+#13 27.76 *** installing help indices
+#13 27.78 ** building package indices
+#13 27.79 ** installing vignettes
+#13 27.80 ** testing if installed package can be loaded from temporary location
+#13 28.01 ** checking absolute paths in shared objects and dynamic libraries
+#13 28.03 ** testing if installed package can be loaded from final location
+#13 28.22 ** testing if installed package keeps a record of temporary installation path
+#13 28.22 * DONE (zlibbioc)
+#13 28.56 * installing *source* package 'curl' ...
+#13 28.57 ** package 'curl' successfully unpacked and MD5 sums checked
+#13 28.57 ** using staged installation
+#13 28.58 Found pkg-config cflags and libs!
+#13 28.72 Using PKG_CFLAGS=-I/usr/include/x86_64-linux-gnu
+#13 28.72 Using PKG_LIBS=-lcurl
+#13 28.78 ** libs
+#13 28.79 rm -f curl.so callbacks.o curl.o download.o escape.o fetch.o form.o getdate.o handle.o ieproxy.o init.o interrupt.o multi.o nslookup.o reflist.o split.o ssl.o utils.o version.o winidn.o writer.o
+#13 28.79 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c callbacks.c -o callbacks.o
+#13 28.90 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c curl.c -o curl.o
+#13 29.09 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c download.c -o download.o
+#13 29.22 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c escape.c -o escape.o
+#13 29.29 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c fetch.c -o fetch.o
+#13 29.42 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c form.c -o form.o
+#13 29.51 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c getdate.c -o getdate.o
+#13 29.59 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c handle.c -o handle.o
+#13 29.97 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c ieproxy.c -o ieproxy.o
+#13 30.02 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c init.c -o init.o
+#13 30.09 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c interrupt.c -o interrupt.o
+#13 30.17 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c multi.c -o multi.o
+#13 30.37 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c nslookup.c -o nslookup.o
+#13 30.44 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c reflist.c -o reflist.o
+#13 30.51 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c split.c -o split.o
+#13 30.57 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c ssl.c -o ssl.o
+#13 30.63 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c utils.c -o utils.o
+#13 30.77 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c version.c -o version.o
+#13 30.86 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c winidn.c -o winidn.o
+#13 30.88 gcc -I"/usr/local/lib/R/include" -DNDEBUG -I/usr/include/x86_64-linux-gnu -DSTRICT_R_HEADERS  -I/usr/local/include -fvisibility=hidden -fpic  -g -O2  -c writer.c -o writer.o
+#13 30.95 gcc -shared -L/usr/local/lib -o curl.so callbacks.o curl.o download.o escape.o fetch.o form.o getdate.o handle.o ieproxy.o init.o interrupt.o multi.o nslookup.o reflist.o split.o ssl.o utils.o version.o winidn.o writer.o -lcurl
+#13 30.98 installing to /usr/local/lib/R/site-library/00LOCK-curl/00new/curl/libs
+#13 30.98 ** R
+#13 30.99 ** data
+#13 30.99 *** moving datasets to lazyload DB
+#13 31.01 ** inst
+#13 31.02 ** byte-compile and prepare package for lazy loading
+#13 31.55 ** help
+#13 31.59 *** installing help indices
+#13 31.64 ** building package indices
+#13 31.68 ** installing vignettes
+#13 31.70 ** testing if installed package can be loaded from temporary location
+#13 31.93 ** checking absolute paths in shared objects and dynamic libraries
+#13 31.95 ** testing if installed package can be loaded from final location
+#13 32.17 ** testing if installed package keeps a record of temporary installation path
+#13 32.18 * DONE (curl)
+#13 32.65 * installing *source* package 'jsonlite' ...
+#13 32.66 ** package 'jsonlite' successfully unpacked and MD5 sums checked
+#13 32.66 ** using staged installation
+#13 32.68 ** libs
+#13 32.69 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c base64.c -o base64.o
+#13 32.77 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c collapse_array.c -o collapse_array.o
+#13 32.85 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c collapse_object.c -o collapse_object.o
+#13 32.92 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c collapse_pretty.c -o collapse_pretty.o
+#13 33.05 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c escape_chars.c -o escape_chars.o
+#13 33.14 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c integer64_to_na.c -o integer64_to_na.o
+#13 33.21 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c is_datelist.c -o is_datelist.o
+#13 33.27 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c is_recordlist.c -o is_recordlist.o
+#13 33.37 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c is_scalarlist.c -o is_scalarlist.o
+#13 33.44 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c modp_numtoa.c -o modp_numtoa.o
+#13 33.60 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c null_to_na.c -o null_to_na.o
+#13 33.70 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c num_to_char.c -o num_to_char.o
+#13 33.80 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c parse.c -o parse.o
+#13 33.89 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c prettify.c -o prettify.o
+#13 33.98 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c push_parser.c -o push_parser.o
+#13 34.06 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c r-base64.c -o r-base64.o
+#13 34.13 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c register.c -o register.o
+#13 34.19 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c row_collapse.c -o row_collapse.o
+#13 34.28 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c transpose_list.c -o transpose_list.o
+#13 34.34 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c validate.c -o validate.o
+#13 34.42 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c yajl/yajl.c -o yajl/yajl.o
+#13 34.50 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c yajl/yajl_alloc.c -o yajl/yajl_alloc.o
+#13 34.54 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c yajl/yajl_buf.c -o yajl/yajl_buf.o
+#13 34.60 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c yajl/yajl_encode.c -o yajl/yajl_encode.o
+#13 34.74 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c yajl/yajl_gen.c -o yajl/yajl_gen.o
+#13 35.06 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c yajl/yajl_lex.c -o yajl/yajl_lex.o
+#13 35.36 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c yajl/yajl_parser.c -o yajl/yajl_parser.o
+#13 35.61 gcc -I"/usr/local/lib/R/include" -DNDEBUG -Iyajl/api  -I/usr/local/include -fvisibility=hidden  -fpic  -g -O2  -c yajl/yajl_tree.c -o yajl/yajl_tree.o
+#13 35.79 ar rcs yajl/libstatyajl.a yajl/yajl.o yajl/yajl_alloc.o yajl/yajl_buf.o yajl/yajl_encode.o yajl/yajl_gen.o yajl/yajl_lex.o yajl/yajl_parser.o yajl/yajl_tree.o
+#13 35.80 gcc -shared -L/usr/local/lib -o jsonlite.so base64.o collapse_array.o collapse_object.o collapse_pretty.o escape_chars.o integer64_to_na.o is_datelist.o is_recordlist.o is_scalarlist.o modp_numtoa.o null_to_na.o num_to_char.o parse.o prettify.o push_parser.o r-base64.o register.o row_collapse.o transpose_list.o validate.o -Lyajl -lstatyajl
+#13 35.84 installing to /usr/local/lib/R/site-library/00LOCK-jsonlite/00new/jsonlite/libs
+#13 35.84 ** R
+#13 35.85 ** inst
+#13 35.86 ** byte-compile and prepare package for lazy loading
+#13 36.86 ** help
+#13 36.90 *** installing help indices
+#13 36.93 ** building package indices
+#13 36.96 ** installing vignettes
+#13 36.97 ** testing if installed package can be loaded from temporary location
+#13 37.19 ** checking absolute paths in shared objects and dynamic libraries
+#13 37.22 ** testing if installed package can be loaded from final location
+#13 37.45 ** testing if installed package keeps a record of temporary installation path
+#13 37.45 * DONE (jsonlite)
+#13 37.73 * installing *source* package 'mime' ...
+#13 37.74 ** package 'mime' successfully unpacked and MD5 sums checked
+#13 37.74 ** using staged installation
+#13 37.76 ** libs
+#13 37.77 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c init.c -o init.o
+#13 37.84 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c rawmatch.c -o rawmatch.o
+#13 37.91 gcc -shared -L/usr/local/lib -o mime.so init.o rawmatch.o
+#13 37.93 installing to /usr/local/lib/R/site-library/00LOCK-mime/00new/mime/libs
+#13 37.93 ** R
+#13 37.94 ** byte-compile and prepare package for lazy loading
+#13 38.30 ** help
+#13 38.32 *** installing help indices
+#13 38.34 ** building package indices
+#13 38.36 ** testing if installed package can be loaded from temporary location
+#13 38.58 ** checking absolute paths in shared objects and dynamic libraries
+#13 38.60 ** testing if installed package can be loaded from final location
+#13 38.80 ** testing if installed package keeps a record of temporary installation path
+#13 38.81 * DONE (mime)
+#13 39.16 * installing *source* package 'BiocGenerics' ...
+#13 39.16 ** using staged installation
+#13 39.18 ** R
+#13 39.19 ** inst
+#13 39.20 ** byte-compile and prepare package for lazy loading
+#13 41.43 Creating a new generic function for 'append' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'as.data.frame' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'cbind' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'rbind' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'do.call' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'duplicated' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'anyDuplicated' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'eval' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'pmax' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'pmin' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'pmax.int' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'pmin.int' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'Reduce' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'Filter' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'Find' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'Map' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'Position' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'get' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'mget' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'grep' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'grepl' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'is.unsorted' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'lapply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'sapply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'mapply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'match' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'order' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'paste' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'rank' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'rownames' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'colnames' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'union' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'intersect' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'setdiff' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'sort' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'table' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'tapply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'unique' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'unsplit' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'var' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'sd' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'which' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'which.max' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'which.min' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'IQR' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'mad' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'xtabs' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'clusterCall' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'clusterApply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'clusterApplyLB' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'clusterEvalQ' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'clusterExport' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'clusterMap' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'parLapply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'parSapply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'parApply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'parRapply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'parCapply' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'parLapplyLB' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'parSapplyLB' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'basename' in package 'BiocGenerics'
+#13 41.43 Creating a new generic function for 'dirname' in package 'BiocGenerics'
+#13 41.43 ** help
+#13 41.70 *** installing help indices
+#13 41.92 ** building package indices
+#13 42.17 ** testing if installed package can be loaded from temporary location
+#13 42.52 ** testing if installed package can be loaded from final location
+#13 42.97 ** testing if installed package keeps a record of temporary installation path
+#13 42.98 * DONE (BiocGenerics)
+#13 43.23 * installing *source* package 'png' ...
+#13 43.24 ** package 'png' successfully unpacked and MD5 sums checked
+#13 43.24 ** using staged installation
+#13 43.25 ** libs
+#13 43.26 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  `libpng-config --cflags` -fpic  -g -O2  -c read.c -o read.o
+#13 43.49 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  `libpng-config --cflags` -fpic  -g -O2  -c write.c -o write.o
+#13 43.71 gcc -shared -L/usr/local/lib -o png.so read.o write.o -lpng16 -lm -lz -lm
+#13 43.74 installing to /usr/local/lib/R/site-library/00LOCK-png/00new/png/libs
+#13 43.75 ** R
+#13 43.75 ** inst
+#13 43.76 ** byte-compile and prepare package for lazy loading
+#13 44.03 ** help
+#13 44.05 *** installing help indices
+#13 44.08 ** building package indices
+#13 44.10 ** testing if installed package can be loaded from temporary location
+#13 44.33 ** checking absolute paths in shared objects and dynamic libraries
+#13 44.36 ** testing if installed package can be loaded from final location
+#13 44.55 ** testing if installed package keeps a record of temporary installation path
+#13 44.55 * DONE (png)
+#13 44.81 * installing *source* package 'askpass' ...
+#13 44.81 ** package 'askpass' successfully unpacked and MD5 sums checked
+#13 44.81 ** using staged installation
+#13 44.84 ** libs
+#13 44.86 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c askpass.c -o askpass.o
+#13 44.93 gcc -shared -L/usr/local/lib -o askpass.so askpass.o
+#13 44.96 installing to /usr/local/lib/R/site-library/00LOCK-askpass/00new/askpass/libs
+#13 44.96 ** R
+#13 44.97 ** inst
+#13 44.97 ** byte-compile and prepare package for lazy loading
+#13 45.27 ** help
+#13 45.29 *** installing help indices
+#13 45.31 ** building package indices
+#13 45.32 ** testing if installed package can be loaded from temporary location
+#13 45.53 ** checking absolute paths in shared objects and dynamic libraries
+#13 45.56 ** testing if installed package can be loaded from final location
+#13 45.76 ** testing if installed package keeps a record of temporary installation path
+#13 45.76 * DONE (askpass)
+#13 46.13 * installing *source* package 'S4Vectors' ...
+#13 46.13 ** using staged installation
+#13 46.16 ** libs
+#13 46.16 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c AEbufs.c -o AEbufs.o
+#13 46.74 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c DataFrame_class.c -o DataFrame_class.o
+#13 46.80 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c Hits_class.c -o Hits_class.o
+#13 47.05 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c LLint_class.c -o LLint_class.o
+#13 47.33 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c List_class.c -o List_class.o
+#13 47.38 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c R_init_S4Vectors.c -o R_init_S4Vectors.o
+#13 47.47 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c Rle_class.c -o Rle_class.o
+#13 48.00 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c Rle_utils.c -o Rle_utils.o
+#13 48.43 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c SEXP_utils.c -o SEXP_utils.o
+#13 48.51 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c SimpleList_class.c -o SimpleList_class.o
+#13 48.57 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c anyMissing.c -o anyMissing.o
+#13 48.64 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c character_utils.c -o character_utils.o
+#13 48.75 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c eval_utils.c -o eval_utils.o
+#13 48.82 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c hash_utils.c -o hash_utils.o
+#13 48.89 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c integer_utils.c -o integer_utils.o
+#13 49.41 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c logical_utils.c -o logical_utils.o
+#13 49.48 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c map_ranges_to_runs.c -o map_ranges_to_runs.o
+#13 49.76 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c raw_utils.c -o raw_utils.o
+#13 49.94 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c safe_arithm.c -o safe_arithm.o
+#13 50.05 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c sort_utils.c -o sort_utils.o
+#13 50.54 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c subsetting_utils.c -o subsetting_utils.o
+#13 50.72 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c vector_utils.c -o vector_utils.o
+#13 50.81 gcc -shared -L/usr/local/lib -o S4Vectors.so AEbufs.o DataFrame_class.o Hits_class.o LLint_class.o List_class.o R_init_S4Vectors.o Rle_class.o Rle_utils.o SEXP_utils.o SimpleList_class.o anyMissing.o character_utils.o eval_utils.o hash_utils.o integer_utils.o logical_utils.o map_ranges_to_runs.o raw_utils.o safe_arithm.o sort_utils.o subsetting_utils.o vector_utils.o
+#13 50.85 installing to /usr/local/lib/R/site-library/00LOCK-S4Vectors/00new/S4Vectors/libs
+#13 50.85 ** R
+#13 50.89 ** inst
+#13 50.90 ** byte-compile and prepare package for lazy loading
+#13 63.80 in method for 'normalizeSingleBracketReplacementValue' with signature '"List"': no definition for class "List"
+#13 63.80 Creating a generic function for 'complete.cases' from package 'stats' in package 'S4Vectors'
+#13 63.80 Creating a new generic function for 'expand.grid' in package 'S4Vectors'
+#13 63.80 Creating a generic function for '%in%' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a new generic function for 'findMatches' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'setequal' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'as.factor' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'tabulate' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'cov' from package 'stats' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'cor' from package 'stats' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'smoothEnds' from package 'stats' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'runmed' from package 'stats' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'nchar' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'substr' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'substring' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'chartr' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'tolower' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'toupper' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'sub' from package 'base' in package 'S4Vectors'
+#13 63.80 Creating a generic function for 'gsub' from package 'base' in package 'S4Vectors'
+#13 63.80 in method for 'coerce' with signature '"data.table","DataFrame"': no definition for class "data.table"
+#13 63.80 ** help
+#13 64.10 *** installing help indices
+#13 64.31 ** building package indices
+#13 64.48 ** installing vignettes
+#13 64.51 ** testing if installed package can be loaded from temporary location
+#13 66.32 ** checking absolute paths in shared objects and dynamic libraries
+#13 66.34 ** testing if installed package can be loaded from final location
+#13 67.93 ** testing if installed package keeps a record of temporary installation path
+#13 67.95 * DONE (S4Vectors)
+#13 68.47 * installing *source* package 'openssl' ...
+#13 68.49 ** package 'openssl' successfully unpacked and MD5 sums checked
+#13 68.49 ** using staged installation
+#13 68.50 Found pkg-config cflags and libs!
+#13 68.63 Using PKG_CFLAGS=
+#13 68.84 Using PKG_LIBS=-l:libssl.so.1.1 -l:libcrypto.so.1.1
+#13 68.87 ** libs
+#13 68.87 rm -f aes.o base64.o bignum.o cert.o compatibility.o diffie.o envelope.o error.o hash.o info.o keygen.o keys.o onload.o openssh.o password.o pem.o pkcs12.o pkcs7.o rand.o rsa.o signing.o ssl.o stream.o write.o openssl.so
+#13 68.88 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c aes.c -o aes.o
+#13 68.98 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c base64.c -o base64.o
+#13 69.10 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c bignum.c -o bignum.o
+#13 69.25 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c cert.c -o cert.o
+#13 69.45 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c compatibility.c -o compatibility.o
+#13 69.54 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c diffie.c -o diffie.o
+#13 69.68 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c envelope.c -o envelope.o
+#13 69.86 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c error.c -o error.o
+#13 69.95 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c hash.c -o hash.o
+#13 70.10 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c info.c -o info.o
+#13 70.15 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c keygen.c -o keygen.o
+#13 70.27 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c keys.c -o keys.o
+#13 70.46 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c onload.c -o onload.o
+#13 70.59 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c openssh.c -o openssh.o
+#13 70.83 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c password.c -o password.o
+#13 70.90 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c pem.c -o pem.o
+#13 71.08 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c pkcs12.c -o pkcs12.o
+#13 71.27 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c pkcs7.c -o pkcs7.o
+#13 71.44 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c rand.c -o rand.o
+#13 71.51 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c rsa.c -o rsa.o
+#13 71.64 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c signing.c -o signing.o
+#13 71.85 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c ssl.c -o ssl.o
+#13 72.05 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c stream.c -o stream.o
+#13 72.24 gcc -I"/usr/local/lib/R/include" -DNDEBUG   -I/usr/local/include  -fpic  -g -O2  -c write.c -o write.o
+#13 72.42 gcc -shared -L/usr/local/lib -o openssl.so aes.o base64.o bignum.o cert.o compatibility.o diffie.o envelope.o error.o hash.o info.o keygen.o keys.o onload.o openssh.o password.o pem.o pkcs12.o pkcs7.o rand.o rsa.o signing.o ssl.o stream.o write.o -l:libssl.so.1.1 -l:libcrypto.so.1.1
+#13 72.51 installing to /usr/local/lib/R/site-library/00LOCK-openssl/00new/openssl/libs
+#13 72.51 ** R
+#13 72.52 ** inst
+#13 72.53 ** byte-compile and prepare package for lazy loading
+#13 73.47 ** help
+#13 73.52 *** installing help indices
+#13 73.57 ** building package indices
+#13 73.62 ** installing vignettes
+#13 73.63 ** testing if installed package can be loaded from temporary location
+#13 73.85 ** checking absolute paths in shared objects and dynamic libraries
+#13 73.87 ** testing if installed package can be loaded from final location
+#13 74.12 ** testing if installed package keeps a record of temporary installation path
+#13 74.12 * DONE (openssl)
+#13 74.55 * installing *source* package 'IRanges' ...
+#13 74.55 ** using staged installation
+#13 74.57 ** libs
+#13 74.59 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c CompressedAtomicList_utils.c -o CompressedAtomicList_utils.o
+#13 75.05 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c CompressedIRangesList_class.c -o CompressedIRangesList_class.o
+#13 75.19 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c CompressedList_class.c -o CompressedList_class.o
+#13 75.27 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c Grouping_class.c -o Grouping_class.o
+#13 75.38 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c IPosRanges_comparison.c -o IPosRanges_comparison.o
+#13 75.47 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c IRanges_class.c -o IRanges_class.o
+#13 75.65 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c IRanges_constructor.c -o IRanges_constructor.o
+#13 75.82 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c NCList.c -o NCList.o
+#13 76.22 NCList.c: In function 'NCListAsINTSXP_print':
+#13 76.22 NCList.c:674:23: warning: '%d' directive writing between 1 and 11 bytes into a region of size 8 [-Wformat-overflow=]
+#13 76.22   674 |   sprintf(format, "%c0%d%c", '%', max_digits, 'd');
+#13 76.22       |                       ^~
+#13 76.22 NCList.c:674:19: note: directive argument in the range [-2147483647, 2147483647]
+#13 76.22   674 |   sprintf(format, "%c0%d%c", '%', max_digits, 'd');
+#13 76.22       |                   ^~~~~~~~~
+#13 76.22 In file included from /usr/include/stdio.h:867,
+#13 76.22                  from /usr/local/lib/R/include/Rinternals.h:39,
+#13 76.22                  from /usr/local/lib/R/include/Rdefines.h:40,
+#13 76.22                  from /usr/local/lib/R/site-library/S4Vectors/include/S4Vectors_defines.h:18,
+#13 76.22                  from ../inst/include/IRanges_defines.h:18,
+#13 76.22                  from IRanges.h:1,
+#13 76.22                  from NCList.c:5:
+#13 76.22 /usr/include/x86_64-linux-gnu/bits/stdio2.h:36:10: note: '__builtin___sprintf_chk' output between 5 and 15 bytes into a destination of size 10
+#13 76.22    36 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+#13 76.22       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#13 76.22    37 |       __bos (__s), __fmt, __va_arg_pack ());
+#13 76.22       |       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#13 76.33 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c R_init_IRanges.c -o R_init_IRanges.o
+#13 76.40 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c Ranges_class.c -o Ranges_class.o
+#13 76.49 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c RleViews_utils.c -o RleViews_utils.o
+#13 76.98 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c S4Vectors_stubs.c -o S4Vectors_stubs.o
+#13 77.42 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c SimpleIRangesList_class.c -o SimpleIRangesList_class.o
+#13 77.52 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c coverage_methods.c -o coverage_methods.o
+#13 77.84 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c extractListFragments.c -o extractListFragments.o
+#13 77.91 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I/usr/local/include  -fpic  -g -O2  -c inter_range_methods.c -o inter_range_methods.o
+#13 78.13 gcc -shared -L/usr/local/lib -o IRanges.so CompressedAtomicList_utils.o CompressedIRangesList_class.o CompressedList_class.o Grouping_class.o IPosRanges_comparison.o IRanges_class.o IRanges_constructor.o NCList.o R_init_IRanges.o Ranges_class.o RleViews_utils.o S4Vectors_stubs.o SimpleIRangesList_class.o coverage_methods.o extractListFragments.o inter_range_methods.o
+#13 78.17 installing to /usr/local/lib/R/site-library/00LOCK-IRanges/00new/IRanges/libs
+#13 78.17 ** R
+#13 78.21 ** inst
+#13 78.22 ** byte-compile and prepare package for lazy loading
+#13 104.2 Creating a generic function for 'drop' from package 'base' in package 'IRanges'
+#13 104.2 Creating a generic function for 'runmed' from package 'stats' in package 'IRanges'
+#13 104.2 Creating a generic function for 'chartr' from package 'base' in package 'IRanges'
+#13 104.2 Creating a generic function for 'toupper' from package 'base' in package 'IRanges'
+#13 104.2 Creating a generic function for 'tolower' from package 'base' in package 'IRanges'
+#13 104.2 Creating a generic function for 'sub' from package 'base' in package 'IRanges'
+#13 104.2 Creating a generic function for 'gsub' from package 'base' in package 'IRanges'
+#13 104.2 Creating a generic function for 'smoothEnds' from package 'stats' in package 'IRanges'
+#13 104.2 ** help
+#13 104.7 *** installing help indices
+#13 104.9 ** building package indices
+#13 105.1 ** installing vignettes
+#13 105.1 ** testing if installed package can be loaded from temporary location
+#13 106.8 ** checking absolute paths in shared objects and dynamic libraries
+#13 106.8 ** testing if installed package can be loaded from final location
+#13 108.8 ** testing if installed package keeps a record of temporary installation path
+#13 108.8 * DONE (IRanges)
+#13 109.2 * installing *source* package 'XVector' ...
+#13 109.2 ** using staged installation
+#13 109.2 ** libs
+#13 109.2 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c IRanges_stubs.c -o IRanges_stubs.o
+#13 109.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c Ocopy_byteblocks.c -o Ocopy_byteblocks.o
+#13 109.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c RDS_random_access.c -o RDS_random_access.o
+#13 109.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c R_init_XVector.c -o R_init_XVector.o
+#13 110.0 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c S4Vectors_stubs.c -o S4Vectors_stubs.o
+#13 110.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c SharedDouble_class.c -o SharedDouble_class.o
+#13 110.5 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c SharedInteger_class.c -o SharedInteger_class.o
+#13 110.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c SharedRaw_class.c -o SharedRaw_class.o
+#13 110.8 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c SharedVector_class.c -o SharedVector_class.o
+#13 111.0 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c XDouble_class.c -o XDouble_class.o
+#13 111.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c XInteger_class.c -o XInteger_class.o
+#13 111.2 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c XRawList_comparison.c -o XRawList_comparison.o
+#13 111.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c XRaw_class.c -o XRaw_class.o
+#13 111.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c XVectorList_class.c -o XVectorList_class.o
+#13 111.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c XVector_class.c -o XVector_class.o
+#13 111.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c io_utils.c -o io_utils.o
+#13 111.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c slice_methods.c -o slice_methods.o
+#13 112.0 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c vector_copy.c -o vector_copy.o
+#13 112.2 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I/usr/local/include  -fpic  -g -O2  -c view_summarization_methods.c -o view_summarization_methods.o
+#13 112.4 gcc -shared -L/usr/local/lib -o XVector.so IRanges_stubs.o Ocopy_byteblocks.o RDS_random_access.o R_init_XVector.o S4Vectors_stubs.o SharedDouble_class.o SharedInteger_class.o SharedRaw_class.o SharedVector_class.o XDouble_class.o XInteger_class.o XRawList_comparison.o XRaw_class.o XVectorList_class.o XVector_class.o io_utils.o slice_methods.o vector_copy.o view_summarization_methods.o -lz
+#13 112.5 installing to /usr/local/lib/R/site-library/00LOCK-XVector/00new/XVector/libs
+#13 112.5 ** R
+#13 112.5 ** inst
+#13 112.5 ** byte-compile and prepare package for lazy loading
+#13 118.4 ** help
+#13 118.5 *** installing help indices
+#13 118.5 ** building package indices
+#13 118.6 ** testing if installed package can be loaded from temporary location
+#13 120.6 ** checking absolute paths in shared objects and dynamic libraries
+#13 120.7 ** testing if installed package can be loaded from final location
+#13 122.7 ** testing if installed package keeps a record of temporary installation path
+#13 122.7 * DONE (XVector)
+#13 123.1 * installing *source* package 'httr' ...
+#13 123.1 ** package 'httr' successfully unpacked and MD5 sums checked
+#13 123.1 ** using staged installation
+#13 123.1 ** R
+#13 123.1 ** demo
+#13 123.2 ** inst
+#13 123.2 ** byte-compile and prepare package for lazy loading
+#13 126.0 ** help
+#13 126.2 *** installing help indices
+#13 126.4 ** building package indices
+#13 126.6 ** installing vignettes
+#13 126.6 ** testing if installed package can be loaded from temporary location
+#13 126.8 ** testing if installed package can be loaded from final location
+#13 127.1 ** testing if installed package keeps a record of temporary installation path
+#13 127.1 * DONE (httr)
+#13 128.0 * installing *source* package 'Biostrings' ...
+#13 128.0 ** using staged installation
+#13 128.0 ** libs
+#13 128.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c BAB_class.c -o BAB_class.o
+#13 128.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c BitMatrix.c -o BitMatrix.o
+#13 128.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c IRanges_stubs.c -o IRanges_stubs.o
+#13 128.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c MIndex_class.c -o MIndex_class.o
+#13 128.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c PreprocessedTB_class.c -o PreprocessedTB_class.o
+#13 128.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c R_init_Biostrings.c -o R_init_Biostrings.o
+#13 128.8 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c RoSeqs_utils.c -o RoSeqs_utils.o
+#13 128.8 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c S4Vectors_stubs.c -o S4Vectors_stubs.o
+#13 129.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c SparseList_utils.c -o SparseList_utils.o
+#13 129.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c XStringSetList_class.c -o XStringSetList_class.o
+#13 129.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c XStringSet_class.c -o XStringSet_class.o
+#13 129.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c XString_class.c -o XString_class.o
+#13 129.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c XVector_stubs.c -o XVector_stubs.o
+#13 129.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c align_needwunsQS.c -o align_needwunsQS.o
+#13 130.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c align_pairwiseAlignment.c -o align_pairwiseAlignment.o
+#13 130.8 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c align_utils.c -o align_utils.o
+#13 131.0 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c find_palindromes.c -o find_palindromes.o
+#13 131.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c gtestsim.c -o gtestsim.o
+#13 131.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c inject_code.c -o inject_code.o
+#13 131.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c letter_frequency.c -o letter_frequency.o
+#13 131.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c lowlevel_matching.c -o lowlevel_matching.o
+#13 132.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_PWM.c -o match_PWM.o
+#13 132.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_pattern.c -o match_pattern.o
+#13 132.5 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_pattern_boyermoore.c -o match_pattern_boyermoore.o
+#13 132.7 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_pattern_indels.c -o match_pattern_indels.o
+#13 132.8 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_pattern_shiftor.c -o match_pattern_shiftor.o
+#13 132.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_pdict.c -o match_pdict.o
+#13 133.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_pdict_ACtree2.c -o match_pdict_ACtree2.o
+#13 133.5 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_pdict_Twobit.c -o match_pdict_Twobit.o
+#13 133.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_pdict_utils.c -o match_pdict_utils.o
+#13 133.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c match_reporting.c -o match_reporting.o
+#13 134.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c matchprobes.c -o matchprobes.o
+#13 134.2 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c pmatchPattern.c -o pmatchPattern.o
+#13 134.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c read_fasta_files.c -o read_fasta_files.o
+#13 134.6 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c read_fastq_files.c -o read_fastq_files.o
+#13 134.8 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c replaceAt.c -o replaceAt.o
+#13 134.9 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c replace_letter_at.c -o replace_letter_at.o
+#13 135.1 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c strutils.c -o strutils.o
+#13 135.2 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c translate.c -o translate.o
+#13 135.3 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c unstrsplit_methods.c -o unstrsplit_methods.o
+#13 135.4 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c utils.c -o utils.o
+#13 135.5 gcc -I"/usr/local/lib/R/include" -DNDEBUG  -I"/usr/local/lib/R/site-library/S4Vectors/include" -I"/usr/local/lib/R/site-library/IRanges/include" -I"/usr/local/lib/R/site-library/XVector/include" -I/usr/local/include  -fpic  -g -O2  -c xscat.c -o xscat.o
+#13 135.6 gcc -shared -L/usr/local/lib -o Biostrings.so BAB_class.o BitMatrix.o IRanges_stubs.o MIndex_class.o PreprocessedTB_class.o R_init_Biostrings.o RoSeqs_utils.o S4Vectors_stubs.o SparseList_utils.o XStringSetList_class.o XStringSet_class.o XString_class.o XVector_stubs.o align_needwunsQS.o align_pairwiseAlignment.o align_utils.o find_palindromes.o gtestsim.o inject_code.o letter_frequency.o lowlevel_matching.o match_PWM.o match_pattern.o match_pattern_boyermoore.o match_pattern_indels.o match_pattern_shiftor.o match_pdict.o match_pdict_ACtree2.o match_pdict_Twobit.o match_pdict_utils.o match_reporting.o matchprobes.o pmatchPattern.o read_fasta_files.o read_fastq_files.o replaceAt.o replace_letter_at.o strutils.o translate.o unstrsplit_methods.o utils.o xscat.o
+#13 135.7 installing to /usr/local/lib/R/site-library/00LOCK-Biostrings/00new/Biostrings/libs
+#13 135.7 ** R
+#13 135.7 ** data
+#13 135.7 ** inst
+#13 135.8 ** byte-compile and prepare package for lazy loading
+#13 152.0 in method for 'twoWayAlphabetFrequencyByQuality' with signature '"QualityScaledXStringSet"': no definition for class "QualityScaledXStringSet"
+#13 152.0 Creating a new generic function for 'strsplit' in package 'Biostrings'
+#13 152.0 Creating a generic function for 'ls' from package 'base' in package 'Biostrings'
+#13 152.0 Creating a new generic function for 'offset' in package 'Biostrings'
+#13 152.0 ** help
+#13 152.5 *** installing help indices
+#13 152.7 ** building package indices
+#13 153.0 ** installing vignettes
+#13 153.0 ** testing if installed package can be loaded from temporary location
+#13 155.4 ** checking absolute paths in shared objects and dynamic libraries
+#13 155.4 ** testing if installed package can be loaded from final location
+#13 157.9 ** testing if installed package keeps a record of temporary installation path
+#13 157.9 * DONE (Biostrings)
+#13 158.2 * installing *source* package 'KEGGREST' ...
+#13 158.2 ** using staged installation
+#13 158.2 ** R
+#13 158.2 ** inst
+#13 158.2 ** byte-compile and prepare package for lazy loading
+#13 161.1 ** help
+#13 161.1 *** installing help indices
+#13 161.1 ** building package indices
+#13 161.1 ** installing vignettes
+#13 161.2 ** testing if installed package can be loaded from temporary location
+#13 163.4 ** testing if installed package can be loaded from final location
+#13 165.6 ** testing if installed package keeps a record of temporary installation path
+#13 165.6 * DONE (KEGGREST)
+#13 165.7 
+#13 165.7 The downloaded source packages are in
+#13 165.7 	'/tmp/RtmpnfclzH/downloaded_packages'
+#13 DONE 166.5s
+
+#14 [10/11] RUN R --version
+#14 0.412 R version 3.6.1 (2019-07-05) -- "Action of the Toes"
+#14 0.412 Copyright (C) 2019 The R Foundation for Statistical Computing
+#14 0.412 Platform: x86_64-pc-linux-gnu (64-bit)
+#14 0.412 
+#14 0.412 R is free software and comes with ABSOLUTELY NO WARRANTY.
+#14 0.412 You are welcome to redistribute it under the terms of the
+#14 0.412 GNU General Public License versions 2 or 3.
+#14 0.412 For more information about these matters see
+#14 0.412 https://www.gnu.org/licenses/.
+#14 0.412 
+#14 DONE 0.4s
+
+#15 [11/11] RUN Rscript -e "library('KEGGREST')"
+#15 DONE 2.9s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 10.3s done
+#16 exporting manifest sha256:d15fd837f088ee8082acf3de8630351ee0a060d23a24661ab79e346aaf75a8f8 0.0s done
+#16 exporting config sha256:424fbc5a9db0325f0315787ef8b046e74e053009420821f32bd663c609d42ca9 0.0s done
+#16 exporting attestation manifest sha256:b68cc277e0e60d2c191dd1f7bf9bb4d895150b97dc671343928bec15b45f48bf 0.0s done
+#16 exporting manifest list sha256:5c425cbd767c7e30c876937be3485734bde2348653c3a1c15e2fbbd5bc28f924 0.0s done
+#16 naming to docker.io/raphaelrubrice/reprohackathon_6:R_kegg done
+#16 unpacking to docker.io/raphaelrubrice/reprohackathon_6:R_kegg
+#16 unpacking to docker.io/raphaelrubrice/reprohackathon_6:R_kegg 8.5s done
+#16 DONE 18.9s

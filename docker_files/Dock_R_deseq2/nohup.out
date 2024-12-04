@@ -1,0 +1,137 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.26kB 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04
+#2 ...
+
+#3 [auth] library/ubuntu:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/ubuntu:20.04
+#2 DONE 1.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE -1.4s
+
+#5 [ 1/13] FROM docker.io/library/ubuntu:20.04@sha256:8e5c4f0285ecbb4ead070431d29b576a530d3166df73ec44affc1cd27555141b
+#5 resolve docker.io/library/ubuntu:20.04@sha256:8e5c4f0285ecbb4ead070431d29b576a530d3166df73ec44affc1cd27555141b 0.1s done
+#5 DONE 0.1s
+
+#6 [ 5/13] RUN curl -o R_3-4-1.tar.gz https://cran.rstudio.com/src/base/R-3/R-3.4.1.tar.gz && tar -xzf R_3-4-1.tar.gz && rm R_3-4-1.tar.gz
+#6 CACHED
+
+#7 [ 9/13] RUN R -e "BiocInstaller::biocLite('graph')"
+#7 CACHED
+
+#8 [ 3/13] RUN apt-get install -y  curl make zlib1g-dev  zlib1g  gfortran  g++  gcc  aptitude  fort77  libbz2-dev  liblzma-dev  libpcre3  libpcre3-dev  libcurl4  libcurl4-openssl-dev  default-jdk  texlive-latex-base  libxml2-dev  libpng-dev  graphviz  libgraphviz-dev  libssl-dev r-base-dev libcairo-dev
+#8 CACHED
+
+#9 [ 6/13] RUN cd R-3.4.1/ && ./configure && make && make install
+#9 CACHED
+
+#10 [ 4/13] RUN aptitude install -y libreadline-dev
+#10 CACHED
+
+#11 [ 7/13] RUN R -e "install.packages(c('tidyverse','ggrepel', 'pheatmap', 'Cairo') , repos = 'https://packagemanager.posit.co/cran/__linux__/focal/2018-01-11')"
+#11 CACHED
+
+#12 [10/13] RUN curl -O https://www.bioconductor.org/packages/release/bioc/src/contrib/Rgraphviz_2.50.0.tar.gz && tar -xzf Rgraphviz_2.50.0.tar.gz && rm Rgraphviz_2.50.0.tar.gz
+#12 CACHED
+
+#13 [11/13] RUN R -e "install.packages('Rgraphviz/', repos = NULL, type='source')" && rm -rf Rgraphviz
+#13 CACHED
+
+#14 [ 2/13] RUN apt-get update
+#14 CACHED
+
+#15 [ 8/13] RUN R -e "install.packages('BiocInstaller', repos = 'https://bioconductor.org/packages/3.5/bioc/')"
+#15 CACHED
+
+#16 [12/13] RUN R -e "options(repos = c(CRAN = 'https://packagemanager.posit.co/cran/__linux__/focal/2018-01-11')) ; BiocInstaller::biocLite('DESeq2')"
+#16 CACHED
+
+#17 [13/13] RUN Rscript -e 'library("DESeq2")'
+#17 0.669 Loading required package: S4Vectors
+#17 0.680 Loading required package: methods
+#17 0.778 Loading required package: stats4
+#17 1.061 Loading required package: BiocGenerics
+#17 1.069 Loading required package: parallel
+#17 1.334 
+#17 1.334 Attaching package: 'BiocGenerics'
+#17 1.334 
+#17 1.336 The following objects are masked from 'package:parallel':
+#17 1.336 
+#17 1.336     clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+#17 1.336     clusterExport, clusterMap, parApply, parCapply, parLapply,
+#17 1.336     parLapplyLB, parRapply, parSapply, parSapplyLB
+#17 1.336 
+#17 1.342 The following objects are masked from 'package:stats':
+#17 1.342 
+#17 1.342     IQR, mad, sd, var, xtabs
+#17 1.342 
+#17 1.352 The following objects are masked from 'package:base':
+#17 1.352 
+#17 1.352     Filter, Find, Map, Position, Reduce, anyDuplicated, append,
+#17 1.352     as.data.frame, cbind, colMeans, colSums, colnames, do.call,
+#17 1.352     duplicated, eval, evalq, get, grep, grepl, intersect, is.unsorted,
+#17 1.352     lapply, lengths, mapply, match, mget, order, paste, pmax, pmax.int,
+#17 1.352     pmin, pmin.int, rank, rbind, rowMeans, rowSums, rownames, sapply,
+#17 1.352     setdiff, sort, table, tapply, union, unique, unsplit, which,
+#17 1.352     which.max, which.min
+#17 1.352 
+#17 2.236 
+#17 2.236 Attaching package: 'S4Vectors'
+#17 2.236 
+#17 2.241 The following object is masked from 'package:base':
+#17 2.241 
+#17 2.241     expand.grid
+#17 2.241 
+#17 2.244 Loading required package: IRanges
+#17 3.484 Loading required package: GenomicRanges
+#17 3.503 Loading required package: GenomeInfoDb
+#17 4.890 Loading required package: SummarizedExperiment
+#17 4.900 Loading required package: Biobase
+#17 5.339 Welcome to Bioconductor
+#17 5.339 
+#17 5.339     Vignettes contain introductory material; view with
+#17 5.339     'browseVignettes()'. To cite Bioconductor, see
+#17 5.339     'citation("Biobase")', and for packages 'citation("pkgname")'.
+#17 5.339 
+#17 5.347 Loading required package: DelayedArray
+#17 5.358 Loading required package: matrixStats
+#17 5.371 
+#17 5.371 Attaching package: 'matrixStats'
+#17 5.371 
+#17 5.371 The following objects are masked from 'package:Biobase':
+#17 5.371 
+#17 5.371     anyMissing, rowMedians
+#17 5.371 
+#17 6.248 
+#17 6.248 Attaching package: 'DelayedArray'
+#17 6.248 
+#17 6.250 The following objects are masked from 'package:matrixStats':
+#17 6.250 
+#17 6.250     colMaxs, colMins, colRanges, rowMaxs, rowMins, rowRanges
+#17 6.250 
+#17 6.262 The following object is masked from 'package:base':
+#17 6.262 
+#17 6.262     apply
+#17 6.262 
+#17 12.54 Warning message:
+#17 12.54 package 'matrixStats' was built under R version 3.4.4 
+#17 DONE 13.1s
+
+#18 exporting to image
+#18 exporting layers
+#18 exporting layers 0.3s done
+#18 exporting manifest sha256:2b029d79ce1e45472eeb23747036b2af52fabfa5c0a611cb996dfdda080fe5b3 0.0s done
+#18 exporting config sha256:9a2c9542671ea0d77585080d8d179a759a8c1b3d62537daa0e6de25ca869688a 0.2s done
+#18 exporting attestation manifest sha256:b7d267440fb4f15db388da2f722616ccb74d47ed96825db2a8b12476356c9020 0.1s done
+#18 exporting manifest list sha256:10e5c40e360a2bdbb7c9c2a346fd2f0b66909ce1f30d65937ad7c25f1c351ed2 0.0s done
+#18 naming to docker.io/raphaelrubrice/reprohackathon_6:R_deseq2_1.16.1 done
+#18 unpacking to docker.io/raphaelrubrice/reprohackathon_6:R_deseq2_1.16.1 0.1s done
+#18 DONE 1.1s
