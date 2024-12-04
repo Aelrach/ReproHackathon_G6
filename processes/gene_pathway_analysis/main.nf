@@ -1,5 +1,5 @@
 process gene_pathway_analysis {
-    publishDir "results/analysis/translation_genes", mode: 'copy', overwrite = true
+    publishDir "results/translation_genes", mode: 'copy', overwrite: true
     
     input:
     path analysis_results 
@@ -9,6 +9,7 @@ process gene_pathway_analysis {
 
     script:
     """
-    -l -c GenePathway.R "$analysis_results"
+    GenePathway.R "$analysis_results" \$PWD
     """
 }
+// GenePathway.R "$analysis_results"

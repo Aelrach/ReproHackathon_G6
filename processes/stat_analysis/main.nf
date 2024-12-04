@@ -1,8 +1,9 @@
 process stat_analysis {
-    publishDir "results/analysis/deseq2", mode: 'copy', overwrite: true
+    publishDir "results/deseq2", mode: 'copy', overwrite: true
     input:
     path count_table
     path coldata_file
+    path geneDB_file
 
     output:
     path "deseq_input_countdata.csv"
@@ -12,6 +13,7 @@ process stat_analysis {
 
     script:
     """
-    -l -c AnalysisScript.R "$count_table" "$coldata_file" "deseq_input_countdata.csv" "vst_table.csv" "deseq_results.csv"
+    AnalysisScript.R "$count_table" "$coldata_file" "deseq_input_countdata.csv" "vst_table.csv" "deseq_results.csv" "$geneDB_file" \$PWD
     """
 }
+// AnalysisScript.R "$count_table" "$coldata_file" "deseq_input_countdata.csv" "vst_table.csv" "deseq_results.csv"
