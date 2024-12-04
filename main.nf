@@ -23,6 +23,8 @@ fasta_is_compressed = params.fasta_compressed
 link_annotation_genome = Channel.value(params.gff)
 gff_is_compressed = params.gff_compressed
 
+geneDB_file = file("${params.script_dir}/GeneSpecificInformation_NCTC8325.xlsx")
+
 workflow {
     
     fastq_files = dlFastqs(sraids).fastqs
@@ -39,6 +41,6 @@ workflow {
 
 
     coldata = create_coldata(bam_files, control_ids)
-    (finalcountdata, vst_table, deseq_results, figures) = stat_analysis(count_table, coldata)
+    (finalcountdata, vst_table, deseq_results, figures) = stat_analysis(count_table, coldata, geneDB_file)
     pathway_figure = gene_pathway_analysis(deseq_results)
 }
