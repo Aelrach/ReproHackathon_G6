@@ -1,4 +1,4 @@
-#!/usr/local/bin Rscript
+#!/usr/local/bin/Rscript
 library(KEGGREST)
 library(stringr)
 library(ggplot2)
@@ -53,6 +53,8 @@ all_gene$AA_tRNA = append(all_gene$AA_tRNA, unlist(sao03012_AA_tRNA))
 
 args <- commandArgs(trailingOnly = TRUE)
 analysis_table_path <- args[1]
+process_path <- args[2]
+
 analysis_table <- read.csv(analysis_table_path, sep=',', row.names=1, header=T)
 
 analysis_table <- analysis_table%>%
@@ -61,8 +63,9 @@ analysis_table <- analysis_table%>%
 analysis_table$AA_tRNA <- rownames(analysis_table) %in% unlist(all_gene$ID)[unlist(all_gene$AA_tRNA)]
 
 a <- analysis_table %>%
-  mutate(Significance = ifelse(!is.na(padj) & padj <= 0.05, "Significant", "Non-Significant"),
-         id=ifelse(conv_name %in% list("frr", "infA", "tsf", "infC", "infB" ,"pth"), conv_name, ""),) %>%
+  mutate(conv_name = as.character(conv_name),
+        Significance = ifelse(!is.na(padj) & padj <= 0.05, "Significant", "Non-Significant"),
+        id=ifelse(conv_name %in% list("frr", "infA", "tsf", "infC", "infB" ,"pth"), conv_name, ""),) %>%
   ggplot() +
   geom_point(aes(x=log2(baseMean), y=log2FoldChange, fill=Significance, color = AA_tRNA), size = 2, shape = 21, stroke = 1) +
   scale_fill_manual(values = c("Significant" = "red", "Non-Significant" = "black")) +
@@ -73,7 +76,7 @@ a <- analysis_table %>%
   scale_x_continuous(breaks = seq(0, 20,2)) +
   theme_minimal()
 
-pdf(file = "MA_plot_translation.pdf")
+pdf(file = paste(process_path,"MA_plot_translation.pdf", sep="/"))
 print(a)
 pdf.options(
   width = 8,

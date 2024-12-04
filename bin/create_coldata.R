@@ -1,10 +1,8 @@
-#!/usr/local/bin Rscript
+#!/usr/local/bin/Rscript
 args <- commandArgs(trailingOnly = TRUE)
-trimmed_files_path <- args[1]
-control_ids <- args[2]
-
-# Read the list of control IDs
-control_ids <- unlist(strsplit(control_ids, ","))
+trimmed_files_path <- unlist(strsplit(args[1], ","))
+control_ids <- unlist(strsplit(args[2], ",")) # Read the list of control IDs
+process_path <- args[3]
 
 # Extract SRA IDs from BAM file names
 extract_sra_id <- function(file_name) {
@@ -26,4 +24,4 @@ coldata <- data.frame(
 )
 
 # Write the coldata to a file
-write.table(coldata, file = "coldata.txt", sep = " ", row.names = FALSE, quote = FALSE)
+write.table(coldata, file = paste(process_path,"/coldata.txt", sep=""), sep = " ", row.names = FALSE, quote = FALSE)

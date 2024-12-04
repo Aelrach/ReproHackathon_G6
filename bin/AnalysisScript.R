@@ -1,4 +1,4 @@
-#!/usr/local/bin Rscript
+#!/usr/local/bin/Rscript
 library(DESeq2)
 library(stringi)
 library(stringr)
@@ -14,7 +14,12 @@ coldata_file_path <- args[2]
 output_finalcountdata_path <- args[3]
 output_vst_path <- args[4]
 output_file_path <- args[5]
+geneDB_path <- args[6]
+process_path <- args[7]
 
+output_finalcountdata_path <- paste(process_path,output_finalcountdata_path, sep="/")
+output_vst_path <- paste(process_path,output_vst_path, sep="/")
+output_file_path <- paste(process_path,output_file_path, sep="/")
 
 # Define helper functions
 format_count_data <- function(count_table, coldata) {
@@ -36,7 +41,6 @@ format_count_data <- function(count_table, coldata) {
     }
   }
   
-  print(samples)
   sample_columns <- columns[str_detect(columns, ".bam")]
   
   final_columns <- rep("", length(coldata$condition))
@@ -76,7 +80,7 @@ make_names_unique <- function(data, column) {
 }
 
 # Load count table
-raw_count_table <- read.table(count_table_path, sep=" ", header=TRUE)
+raw_count_table <- read.table(count_table_path, sep="\t", header=TRUE)
 
 # Load coldata
 coldata <- read.table(coldata_file_path, sep=" ", header=TRUE)
@@ -89,7 +93,7 @@ format_count_table <- output$countdata
 coldata <- output$coldata
 
 # Load gene_ID to gene names table
-ID_to_Names <- read_excel("GeneSpecificInformation_NCTC8325.xlsx")
+ID_to_Names <- read_excel(geneDB_path)
 gene_names <- rep("", length=length(ID_to_Names$`pan gene symbol`))
 for (row in seq(length(ID_to_Names$`pan gene symbol`))) {
   if (isTRUE(ID_to_Names$`pan gene symbol`[row] == "-")) {
@@ -152,7 +156,7 @@ a <- ggplot(pcaData, aes(PC1, PC2, color=condition)) +
     axis.ticks = element_line(size = 0.25),
     panel.border = element_rect(size = 0.25, fill = NA)
   )+scale_color_manual(values=c("#267105", "red"))
-pdf(file = "PCA_on_vst.pdf")
+pdf(file = paste(process_path, "PCA_on_vst.pdf", sep="/"))
 print(a)
 pdf.options(
   width = 8,
@@ -185,7 +189,7 @@ a <- ggplot(as.data.frame(res), aes(y = log2FoldChange, x = baseMean)) +
   geom_hline(aes(yintercept=0), linetype=2) + 
   coord_cartesian(xlim=c(0.1,4*10**5), ylim=c(-4,4)) + 
   scale_x_log10()
-pdf(file = "MA_plot_all_genes.pdf")
+pdf(file = paste(process_path, "MA_plot_all_genes.pdf", sep="/"))
 print(a)
 pdf.options(
   width = 8,
